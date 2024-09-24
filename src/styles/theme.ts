@@ -4,34 +4,21 @@ import { css } from 'styled-components';
 const colors = {
   normal: {
     white: '#FFFFFF',
-    background_white: '#F9F9F9',
     black: '#000000',
   },
-  pink: {
-    background_pink: '#FFBBCB',
-    dark_pink: '#FF7575',
-    btn_hover_pink: '#FFA8BC',
-    btn_pink: '#FFDFE7',
-    white_pink: '#FFEEF2',
-    warm_pink: '#FFA2A2',
-    red_pink: '#FF5959',
-  },
-  feeling: {
-    happy_yellow: '#FFF1A8',
-    sad_blue: '#B4F2FF',
-    surprised_orange: '#FFCA99',
-    relax_green: '#B9FFB3',
-    worried_purple: '#C3C9FF',
-    angry_pink: '#FFB6B6',
-  },
-  yellow: {
-    background_yellow: '#FFE768',
-  },
   gray: {
-    white_gray: '#D9D9D9',
-    dark_gray: '#CBC7C7',
-    text_gray: '#858585',
+    G_50: '#F8F9FC',
+    G_100: '#F3F5F9',
+    G_200: '#E9EAF0',
+    G_400: '#BEC3CC',
+    G_500: '#8C9097',
+    G_600: '#5E6066',
+    G_700: '#27262E',
   },
+  orange: {
+    O_100: '#F67402',
+    O_200: '#FF5B29',
+  }
 };
 
 const fonts = {
@@ -159,6 +146,12 @@ const fonts = {
     font-size: 18px;
     font-weight: 400;
     font-family: "Pretendard-Regular";
+    line-height: normal;
+  `,
+  b_20_600: css`
+    font-size: 20px;
+    font-weight: 600;
+    font-family: "Pretendard-Bold";
     line-height: normal;
   `,
   sb_22_600: css`

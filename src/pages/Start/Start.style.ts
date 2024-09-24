@@ -19,5 +19,6 @@ export const IntroText = styled.span`
   padding-top: 1.5rem;
 `;
 export const ButtonField = styled.div`
+  ${({ theme: { mixin }}) => mixin.flexCenter({})};
   padding-top: 17.5rem;
 `;

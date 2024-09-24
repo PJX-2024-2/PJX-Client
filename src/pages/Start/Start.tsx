@@ -1,5 +1,6 @@
 import { IcTitleIcon } from '../../assets/svg';
 import BtnKakaoLogin from '../../components/common/Button/KakaoLoginButton/BtnKakaoLogin';
+import BtnLarge from '../../components/common/Button/LargeButton/BtnLarge';
 import * as S from './Start.style';
 import React from 'react';
 
@@ -8,6 +9,10 @@ const Start = () => {
   const handeleLogin = () => {
     //로그인 연결
     alert('로그인 진행');
+  };
+  const handleNavigate = () => {
+    //첫 로그인 판단해서 온보딩 혹은 메인 페이지 이동
+    alert('이동');
   };
 
   return(
@@ -18,6 +23,7 @@ const Start = () => {
       <IcTitleIcon />
       <S.ButtonField>
         <BtnKakaoLogin onClick={handeleLogin}/>
+        <BtnLarge onClick={handleNavigate}>시작하기</BtnLarge>
       </S.ButtonField>
     </S.StartWrapper>
   );
