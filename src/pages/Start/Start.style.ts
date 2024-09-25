@@ -5,9 +5,6 @@ export const StartWrapper = styled.div`
   width: 100%;
   height: 100vh;
 `;
-export const TitleBox = styled.div`
-  width: 100%;
-`;
 export const TitleText = styled.span`
   ${({ theme }) => theme.fonts.sb_40_600};
 `;
