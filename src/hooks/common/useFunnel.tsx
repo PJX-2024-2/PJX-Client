@@ -7,26 +7,27 @@ interface StepProps {
 }
 
 interface FunnelProps {
-  children: StepProps[];
+  children: React.ReactElement<StepProps>[];
 }
 
 const useFunnel = () => {
-  const [currentStep, setCurrentStep] = useState('Step1');
+  const [currentStep, setCurrentStep] = useState('step1');
 
   const Step = ({ children }: StepProps) => {
     return <>{children}</>
   };
 
   const Funnel = ({ children }: FunnelProps) => {
-    const targetStep = children?.find(childStep => childStep.name === currentStep );
+    const targetStep = children.find(childStep => childStep.props.name === currentStep );
     return <>{targetStep}</> || <></>
   };
   
-  Funnel.Step = Step;
 
   return {
+    currentStep,
     setCurrentStep,
-    Funnel
+    Funnel,
+    Step
   };
 };
 
