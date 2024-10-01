@@ -6,7 +6,7 @@ interface BtnSmallProps {
   children: React.ReactNode;
 }
 
-const BtnSmall = ({ onClick, children }: BtnSmallProps) => {
+function BtnSmall ({ onClick, children }: BtnSmallProps){
   return(
     <S.ButtonWrapper onClick={() => onClick()}>
       {children}

@@ -6,12 +6,12 @@ interface BtnLargeProps {
   children: React.ReactNode;
 }
 
-const BtnLarge = ({ onClick, children }: BtnLargeProps) => {
+function BtnLarge ({ onClick, children }: BtnLargeProps){
   return(
     <S.ButtonWrapper onClick={() => onClick()}>
       {children}
     </S.ButtonWrapper>
   );
-};
+}
 
 export default BtnLarge;

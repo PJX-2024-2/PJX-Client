@@ -6,12 +6,12 @@ interface BtnKakaoLoginProps {
   onClick: () => void;
 }
 
-const BtnKakaoLogin = ({ onClick }: BtnKakaoLoginProps) => {
+function BtnKakaoLogin ({ onClick }: BtnKakaoLoginProps){
   return(
     <S.ButtonWrapper onClick={() => {onClick()}}>
       <IcKakaoButton />
     </S.ButtonWrapper>
   );
-};
+}
 
 export default BtnKakaoLogin;

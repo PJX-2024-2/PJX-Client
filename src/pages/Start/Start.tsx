@@ -4,7 +4,7 @@ import BtnLarge from '../../components/common/Button/LargeButton/BtnLarge';
 import * as S from './Start.style';
 import React from 'react';
 
-const Start = () => {
+function Start (){
   //토큰 여부에 따른 버튼 조건부 렌더링
   const handeleLogin = () => {
     //로그인 연결
@@ -27,6 +27,6 @@ const Start = () => {
       </S.ButtonField>
     </S.StartWrapper>
   );
-};
+}
 
 export default Start;
