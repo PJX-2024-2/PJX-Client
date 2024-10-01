@@ -1,8 +1,8 @@
 import * as S from './Onboarding.style';
 import React from 'react';
-import Step1 from '../../components/OnboardingSteps/Step1';
-import Step3 from './../../components/OnboardingSteps/Step3';
-import Step2 from '../../components/OnboardingSteps/Step2';
+import Step1 from '../../components/OnboardingSteps/Step1/Step1';
+import Step3 from '../../components/OnboardingSteps/Step3/Step3';
+import Step2 from '../../components/OnboardingSteps/Step2/Step2';
 import useFunnel from '../../hooks/common/useFunnel';
 
 function Onboarding (){
@@ -35,7 +35,6 @@ function Onboarding (){
           </Step>
         ))}
       </Funnel>
-      온보딩 페이지입니다.
     </S.OnboardingWrapper>
   );
 }
