@@ -1,21 +1,18 @@
-import { IcSearch } from '../../assets/svg';
 import MonthlyCost from '../../components/MonthlyCost/MonthlyCost';
 import * as S from './Home.style';
 import React from 'react';
+import GNB from '../../components/GNB/GNB';
+import Calendar from '../../components/Calendar/Calendar';
+
+
 
 const Home = () => {
-    
 
     return (
         <S.HomeWrapper>
             <MonthlyCost/>
-            <S.DateWrapper>
-            <S.YearMonthDate>2024년 09월 03일</S.YearMonthDate>
-            <S.IconWrapper>
-            <S.Day>목요일</S.Day>
-            <IcSearch/>
-            </S.IconWrapper>
-            </S.DateWrapper>
+            <Calendar/>
+    <GNB/>
         </S.HomeWrapper>
     );
 };

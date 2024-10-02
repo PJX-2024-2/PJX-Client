@@ -2,7 +2,7 @@ import { IcPen } from '../../assets/svg';
 import React, { useState }  from "react";
 import * as S from './MonthlyCost.style';
 const MonthlyCost = () => {
-    const [currentAmount, setCurrentAmount] = useState(10000);
+    const [currentAmount, setCurrentAmount] = useState(50000);
     const maxGoal = 100000;
     return (
         <>
