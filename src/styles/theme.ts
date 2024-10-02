@@ -71,137 +71,137 @@ const fonts = {
   m_10_500: css`
     font-size: 10px;
     font-weight: 500;
-    font-family: "Pretendard-Medium";
+    font-family: "Pretendard Medium";
   `,
   sb_10_600: css`
     font-size: 10px;
     font-weight: 600;
-    font-family: "Pretendard-SemiBold";
+    font-family: "Pretendard SemiBold";
   `,
   m_11_500: css`
     font-size: 11px;
     font-weight: 500;
-    font-family: "Pretendard-Medium";
+    font-family: "Pretendard Medium";
   `,
   m_12_400: css`
     font-size: 12px;
     font-weight: 400;
-    font-family: "Pretendard-Medium";
+    font-family: "Pretendard Medium";
   `,
   r_12_400: css`
     font-size: 12px;
     font-weight: 400;
-    font-family: "Pretendard-Regular";
+    font-family: "Pretendard Regular";
   `,
   m_12_500: css`
     font-size: 12px;
     font-weight: 500;
-    font-family: "Pretendard-Medium";
+    font-family: "Pretendard Medium";
   `,
   r_12_500: css`
     font-size: 12px;
     font-weight: 500;
-    font-family: "Pretendard-Regular";
+    font-family: "Pretendard Regular";
   `,
   m_13_500: css`
     font-size: 13px;
     font-weight: 500;
-    font-family: "Pretendard-Medium";
+    font-family: "Pretendard Medium";
   `,
   m_13_600: css`
     font-size: 13px;
     font-weight: 600;
-    font-family: "Pretendard-Medium";
+    font-family: "Pretendard Medium";
   `,
   sb_13_600: css`
     font-size: 13px;
     font-weight: 600;
-    font-family: "Pretendard-SemiBold";
+    font-family: "Pretendard SemiBold";
   `,
   r_14_400: css`
     font-size: 14px;
     font-weight: 400;
-    font-family: "Pretendard-Regular";
+    font-family: "Pretendard Regular";
   `,
   m_14_500: css`
     font-size: 14px;
     font-weight: 500;
-    font-family: "Pretendard-Medium";
+    font-family: "Pretendard Medium";
   `,
   sb_14_600: css`
     font-size: 14px;
     font-weight: 600;
-    font-family: "Pretendard-SemiBold";
+    font-family: "Pretendard SemiBold";
   `,
   m_15_500: css`
     font-size: 15px;
     font-weight: 500;
-    font-family: "Pretendard-Medium";
+    font-family: "Pretendard Medium";
   `,
   sb_15_600: css`
     font-size: 15px;
     font-weight: 600;
-    font-family: "Pretendard-SemiBold";
+    font-family: "Pretendard SemiBold";
   `,
   r_16_400: css`
     font-size: 16px;
     font-weight: 400;
-    font-family: "Pretendard-Regular";
+    font-family: "Pretendard Regular";
   `,
   m_16_500: css`
     font-size: 16px;
     font-weight: 500;
-    font-family: "Pretendard-Medium";
+    font-family: "Pretendard Medium";
   `,
   sb_16_600: css`
     font-size: 16px;
     font-weight: 600;
-    font-family: "Pretendard-SemiBold";
+    font-family: "Pretendard SemiBold";
   `,
   b_16_700: css`
     font-size: 16px;
     font-weight: 700;
-    font-family: "Pretendard-Bold";
+    font-family: "Pretendard Bold";
   `,
   r_18_400: css`
     font-size: 18px;
     font-weight: 400;
-    font-family: "Pretendard-Regular";
+    font-family: "Pretendard Regular";
   `,
   r_18_600: css`
     font-size: 18px;
     font-weight: 400;
-    font-family: "Pretendard-Regular";
+    font-family: "Pretendard Regular";
   `,
   sb_22_600: css`
     font-size: 22px;
     font-weight: 600;
-    font-family: "Pretendard-SemiBold";
+    font-family: "Pretendard SemiBold";
   `,
   sb_25_600: css`
     font-size: 25px;
     font-weight: 600;
-    font-family: "Pretendard-SemiBold";
+    font-family: "Pretendard SemiBold";
   `,
   m_30_500: css`
     font-size: 30px;
     font-weight: 500;
-    font-family: "Pretendard-Medium";
+    font-family: "Pretendard Medium";
   `,
   m_34_500: css`
     font-size: 34px;
     font-weight: 500;
-    font-family: "Pretendard-Medium";
+    font-family: "Pretendard Medium";
   `,
   m_35_500: css`
     font-size: 35px;
     font-weight: 500;
-    font-family: "Pretendard-Medium";
+    font-family: "Pretendard Medium";
   `,
   sb_35_600: css`
     font-size: 35px;
     font-weight: 600;
-    font-family: "Pretendard-SemiBold";
+    font-family: "Pretendard SemiBold";
   `,
 };
 

@@ -1,12 +1,15 @@
+import MonthlyCost from '../../components/MonthlyCost/MonthlyCost';
 import * as S from './Home.style';
 import React from 'react';
 
 const Home = () => {
-    return(
+    
+
+    return (
         <S.HomeWrapper>
-            우와
+            <MonthlyCost/>
         </S.HomeWrapper>
-    )
-}
+    );
+};
 
 export default Home;
