@@ -12,7 +12,6 @@ const Home = () => {
         <S.HomeWrapper>
             <MonthlyCost/>
             <Calendar/>
-    <GNB/>
         </S.HomeWrapper>
     );
 };
