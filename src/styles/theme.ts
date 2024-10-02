@@ -169,6 +169,12 @@ const fonts = {
     font-family: "Pretendard-Regular";
     line-height: normal;
   `,
+  r_16_500: css`
+  font-size: 16px;
+  font-weight: 500;
+  font-family: "Pretendard-Regular";
+  line-height: normal;
+`,
   m_16_500: css`
     font-size: 16px;
     font-weight: 500;
