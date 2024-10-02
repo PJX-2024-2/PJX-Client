@@ -9,3 +9,5 @@ export { default as IcAlarmActive } from './IcAlarmActive';
 export { default as IcMyActive } from './IcMyActive';
 export { default as IcExpensesUnActive } from './IcExpensesUnActive';
 export { default as IcNoneEmoz } from './IcNoneEmoz';
+export { default as IcTitleIcon } from './IcTitleIcon';
+export { default as IcKakaoButton } from './IcKakaoButton';
