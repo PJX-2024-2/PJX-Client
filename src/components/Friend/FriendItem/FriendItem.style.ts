@@ -10,6 +10,7 @@ export const FriendItemWrapper = styled.div`
   border: 1px solid rgba(0, 0, 0, 0.03);
   gap: 1rem;
   cursor: pointer;
+  margin: 0;
 `;
 export const FriendImg = styled.img`
   width: 4rem;
