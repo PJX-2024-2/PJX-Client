@@ -4,6 +4,7 @@ import "./DayPicker.css";
 import { IcSearch } from '../../assets/svg';
 import { ko } from 'date-fns/locale';
 import * as S from './Calendar.style';
+
 const getDayName = (date: Date | undefined) => {
     if (!date) return '';
     
@@ -15,14 +16,13 @@ const formatDate = (date: Date | undefined) => {
     if (!date) return '';
     
     const year = date.getFullYear();
-    const month = String(date.getMonth() + 1).padStart(2, '0'); // 월은 0부터 시작하므로 +1
+    const month = String(date.getMonth() + 1).padStart(2, '0');
     const day = String(date.getDate()).padStart(2, '0');
     
     return `${year}년 ${month}월 ${day}일`;
 };
 
-const Calendar = () => {
-    const [selected, setSelected] = useState<Date>(new Date());
+const Calendar = ({ selectedDate, setSelectedDate }: { selectedDate: Date, setSelectedDate: React.Dispatch<React.SetStateAction<Date>> }) => {
     const [currentMonth, setCurrentMonth] = useState<Date>(new Date());
     const startX = useRef<number | null>(null);
 
@@ -42,49 +42,26 @@ const Calendar = () => {
         }
     };
 
-    const handleMouseDown = (e: React.MouseEvent) => {
-        startX.current = e.clientX;
-    };
-
-    const handleMouseMove = (e: React.MouseEvent) => {
-        if (startX.current === null) return;
-        const moveX = e.clientX - (startX.current as number);
-        if (moveX > 50) {
-            setCurrentMonth(prev => new Date(prev.getFullYear(), prev.getMonth() - 1));
-            startX.current = null;
-        } else if (moveX < -50) {
-            setCurrentMonth(prev => new Date(prev.getFullYear(), prev.getMonth() + 1));
-            startX.current = null;
-        }
-    };
-
-    const handleMouseUp = () => {
-        startX.current = null;
-    };
-
     return(
-        <S.CalendarWrapper  onTouchStart={handleTouchStart}
-        onTouchMove={handleTouchMove}
-        onMouseDown={handleMouseDown}
-        onMouseMove={handleMouseMove}
-        onMouseUp={handleMouseUp}>
+        <S.CalendarWrapper  onTouchStart={handleTouchStart} onTouchMove={handleTouchMove}>
             <S.DateWrapper>
-                <S.YearMonthDate>{formatDate(selected)}</S.YearMonthDate>
+                <S.YearMonthDate>{formatDate(selectedDate)}</S.YearMonthDate>
                 <S.IconWrapper>
-                    <S.Day>{getDayName(selected)}</S.Day>
+                    <S.Day>{getDayName(selectedDate)}</S.Day>
                     <IcSearch />
                 </S.IconWrapper>
             </S.DateWrapper>
             <DayPicker
                 mode="single"
-                selected={selected}
-                onSelect={setSelected}
+                selected={selectedDate}
+                onSelect={setSelectedDate}
                 locale={ko}
                 weekStartsOn={1}
-                month={currentMonth} // 현재 선택된 월 설정
-                onMonthChange={setCurrentMonth} // 월 변경 이벤트 핸들러 추가
+                month={currentMonth}
+                onMonthChange={setCurrentMonth}
             />
         </S.CalendarWrapper>
-    )
+    );
 }
+
 export default Calendar;

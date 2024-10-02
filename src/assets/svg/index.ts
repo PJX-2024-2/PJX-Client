@@ -8,3 +8,4 @@ export { default as IcFeedActive } from './IcFeedActive';
 export { default as IcAlarmActive } from './IcAlarmActive';
 export { default as IcMyActive } from './IcMyActive';
 export { default as IcExpensesUnActive } from './IcExpensesUnActive';
+export { default as IcNoneEmoz } from './IcNoneEmoz';
