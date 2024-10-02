@@ -7,6 +7,7 @@ import Feed from '../pages/Feed/Feed';
 import Alarm from '../pages/Alarm/Alarm';
 import Mypage from '../pages/Mypage/Mypage';
 import LayoutWithFooter from '../layouts/LayoutWithFooter';
+import WriteCost from '../pages/WriteCost/WriteCost';
 
 const router = createBrowserRouter([
   {
@@ -16,6 +17,10 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <Start />
+      },
+      {
+        path: '/write-cost',
+        element: <WriteCost />
       },
     ],
   },

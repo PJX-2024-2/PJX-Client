@@ -1,6 +1,7 @@
 import React from "react";
 import * as S from './CostContent.style';
 import { IcNoneEmoz } from "../../assets/svg";
+import { useNavigate } from "react-router-dom";
 
 const getDayName = (date: Date | undefined) => {
     if (!date) return '';
@@ -10,6 +11,7 @@ const getDayName = (date: Date | undefined) => {
 };
 
 const CostContent = ({ selectedDate }: { selectedDate: Date }) => {
+    const navigate = useNavigate();
     const currentDay = getDayName(selectedDate);
 
     return (
@@ -18,7 +20,7 @@ const CostContent = ({ selectedDate }: { selectedDate: Date }) => {
              <S.Day><p>오늘 {currentDay}</p>지출 한줄평을 작성해보세요.</S.Day>
              <IcNoneEmoz/>
              </S.DayWrapper>
-             <S.AddContentBtn>+ 지출추가</S.AddContentBtn>
+             <S.AddContentBtn onClick={()=>navigate('/write-cost')}>+ 지출추가</S.AddContentBtn>
         </S.CostContentWrapper>
     )
 }
