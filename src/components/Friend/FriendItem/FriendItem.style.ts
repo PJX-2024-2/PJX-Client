@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const FriendItemWrapper = styled.div`
   ${({ theme: { mixin } }) => mixin.flexBox({ align: 'center' })};
-  ${({ theme }) => theme.colors.gray[50]};
+  background: ${({ theme }) => theme.colors.gray[50]};
   width: 34.3rem;
   height: 6rem;
   padding: 1rem 1.6rem 1rem 2.2rem;
