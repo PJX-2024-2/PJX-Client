@@ -173,6 +173,11 @@ const fonts = {
     font-weight: 400;
     font-family: "Pretendard Regular";
   `,
+  b_20_600: css`
+    font-size: 20px;
+    font-weight: 600;
+    font-family: "Pretendard Bold";
+  `,
   sb_22_600: css`
     font-size: 22px;
     font-weight: 600;

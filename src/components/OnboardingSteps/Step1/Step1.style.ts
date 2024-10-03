@@ -9,7 +9,7 @@ export const Step1Wrapper = styled.div`
 `;
 export const DomainCheckSpan = styled.span`
   ${({ theme: { mixin }}) => mixin.flexBox({ justify: 'flex-end' })};
-  ${({ theme }) => theme.fonts.r_16_500};
+  ${({ theme }) => theme.fonts.r_16_400};
   color: ${({ theme }) => theme.colors.primary.default};
   width: 9rem;
   cursor: pointer;

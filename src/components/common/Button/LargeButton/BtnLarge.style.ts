@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const ButtonWrapper = styled.button`
   ${({ theme: { mixin } }) => mixin.flexCenter({})};
-  ${({ theme }) => theme.fonts.b_20_600};
+  ${({ theme }) => theme.fonts.sb_16_600};
   background-color: ${({ theme }) => theme.colors.primary.default};
   color: ${({ theme }) => theme.colors.normal.white};
   width: 34.1rem;
