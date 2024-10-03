@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 export const OnboardingInputWrapper = styled.div`
   width: 100%;
-  height: 30rem;
 `;
 export const InputAreaBox = styled.div`
   display: flex;

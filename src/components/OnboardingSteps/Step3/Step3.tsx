@@ -3,11 +3,10 @@ import BtnLarge from '../../common/Button/LargeButton/BtnLarge';
 import FriendList from '../../Friend/FriendList/FriendList';
 import OnboardingTitle from '../OnboardingTitle/OnboardingTitle';
 import * as S from './Step3.style';
-import React, { useState } from 'react';
+import React from 'react';
 
 function Step3 ({ onNext }: StepProps){
-  const [count, setCount] = useState<number>(0);
-
+  
   const handleNext = () => {
     onNext();
   };
@@ -24,7 +23,7 @@ function Step3 ({ onNext }: StepProps){
         <FriendList />
       </S.LayoutBox>
       <S.ButtonFeild>
-        <BtnLarge onClick={handleNext}>{`${count}명 친구 맺고 시작하기`}</BtnLarge>
+        <BtnLarge onClick={handleNext}>{`N명 친구 맺고 시작하기`}</BtnLarge>
       </S.ButtonFeild>
     </S.Step3Wrapper>
   );

@@ -41,12 +41,12 @@ function Step1 ({ onNext }: StepProps){
         onChange={onChange}
       >
         <S.DomainCheckSpan onClick={() => handleClick()}>{domainValue}</S.DomainCheckSpan>
-        {
-          isClick && (
-            <Dropbox onClick={handleDropbox} />
-          )
-        }
       </OnboardingInput>
+      {
+        isClick && (
+          <Dropbox onClick={handleDropbox} />
+        )
+      }
       <S.ButtonField>
         <BtnSmall onClick={handleNext}>확인</BtnSmall>
       </S.ButtonField>

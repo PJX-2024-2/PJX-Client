@@ -17,4 +17,5 @@ export const DomainCheckSpan = styled.span`
 export const ButtonField = styled.div`
   ${({ theme: { mixin }}) => mixin.flexBox({ justify: 'flex-end' })};
   width: 100%;
+  margin: auto 0 8.5rem 0;
 `;
