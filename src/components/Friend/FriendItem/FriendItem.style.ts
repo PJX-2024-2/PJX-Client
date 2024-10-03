@@ -21,9 +21,14 @@ export const FriendImg = styled.img`
   height: 4rem;
 `;
 export const NicknameBox = styled.div`
+  ${({theme: { mixin }}) => mixin.flexBox({ direction: 'column', justify: 'center', align: 'start' })};
   ${({ theme }) => theme.fonts.sb_13_600};
   width: 22.7rem;
   height: 3.5rem;
+  p {
+    ${({ theme }) => theme.fonts.m_11_400};
+    color: ${({ theme }) => theme.colors.gray[500]};
+  }
 `;
 export const Icon = styled.div`
   width: 1.8rem;

@@ -19,7 +19,10 @@ const FriendItem = ({ children }: FriendItemProps) => {
       isClick={isClick}
     >
       <S.FriendImg src={profileMockImage}/>
-      <S.NicknameBox>{children}</S.NicknameBox>
+      <S.NicknameBox>
+        {children}
+        <p>새로 가입한 또래친구</p>
+      </S.NicknameBox>
       {
         !isClick ? <IcPlus /> : <IcCheck />
       }

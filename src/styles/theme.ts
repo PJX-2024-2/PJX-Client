@@ -85,6 +85,12 @@ const fonts = {
     font-family: "Pretendard-SemiBold";
     line-height: normal;
   `,
+  m_11_400: css`
+    font-size: 11px;
+    font-weight: 400;
+    font-family: "Pretendard-Medium";
+    line-height: normal;
+  `,
   m_11_500: css`
     font-size: 11px;
     font-weight: 500;
