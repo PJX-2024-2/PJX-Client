@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const FriendItemWrapper = styled.div`
-  ${({ theme: { mixin } }) => mixin.flexBox({ direction: 'column', align: 'center' })};
+  ${({ theme: { mixin } }) => mixin.flexBox({ align: 'center' })};
   ${({ theme }) => theme.colors.gray[50]};
   width: 34.3rem;
   height: 6rem;

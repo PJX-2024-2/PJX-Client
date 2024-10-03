@@ -4,13 +4,13 @@ import FriendItem from '../FriendItem/FriendItem';
 
 const FriendList = () => {
   const friendMockData = [
-    'aa',
-    'bb',
-    'cc',
-    'dd',
-    'ee',
-    'ff',
-    'gg',
+    'Nickname',
+    'Nickname',
+    'Nickname',
+    'Nickname',
+    'Nickname',
+    'Nickname',
+    'Nickname',
   ];
 
   return(
