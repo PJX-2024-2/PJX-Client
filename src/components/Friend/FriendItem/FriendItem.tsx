@@ -16,7 +16,7 @@ const FriendItem = ({ children }: FriendItemProps) => {
   return(
     <S.FriendItemWrapper
       onClick={() => handleClick()}
-      isClick={isClick}
+      $isClick={isClick}
     >
       <S.FriendImg src={profileMockImage}/>
       <S.NicknameBox>
