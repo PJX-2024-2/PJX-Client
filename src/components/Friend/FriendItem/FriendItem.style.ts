@@ -30,7 +30,3 @@ export const NicknameBox = styled.div`
     color: ${({ theme }) => theme.colors.gray[500]};
   }
 `;
-export const Icon = styled.div`
-  width: 1.8rem;
-  height: 1.8rem;
-`;
