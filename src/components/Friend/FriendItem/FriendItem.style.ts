@@ -1,13 +1,17 @@
 import styled from 'styled-components';
 
-export const FriendItemWrapper = styled.div`
+interface ItemWrapperProps {
+  isClick: boolean;
+}
+
+export const FriendItemWrapper = styled.div<ItemWrapperProps>`
   ${({ theme: { mixin } }) => mixin.flexBox({ align: 'center' })};
-  background: ${({ theme }) => theme.colors.gray[50]};
+  background: ${({ theme, isClick }) => !isClick ? theme.colors.gray[50] : theme.colors.primary.bgDisabled};
+  border: 1px solid ${({ theme, isClick }) => !isClick ? 'rgba(0,0,0,0.3)' : theme.colors.primary.disabled};
   width: 34.3rem;
   height: 6rem;
   padding: 1rem 1.6rem 1rem 2.2rem;
   border-radius: 10px;
-  border: 1px solid rgba(0, 0, 0, 0.03);
   gap: 1rem;
   cursor: pointer;
   margin: 0;

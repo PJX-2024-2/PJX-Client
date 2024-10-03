@@ -1,18 +1,28 @@
 import * as S from './FriendItem.style';
 import React from 'react';
 import profileMockImage from '../../../assets/profileMockImage.png';
-import { IcPlus } from '../../../assets/svg';
-
+import { IcCheck, IcPlus } from '../../../assets/svg';
+import { useState } from 'react';
 interface FriendItemProps {
   children: React.ReactNode;
 }
 
 const FriendItem = ({ children }: FriendItemProps) => {
+  const [isClick, setIsClick] = useState(false);
+  const handleClick = () => {
+    setIsClick(!isClick);
+  };
+
   return(
-    <S.FriendItemWrapper>
+    <S.FriendItemWrapper
+      onClick={() => handleClick()}
+      isClick={isClick}
+    >
       <S.FriendImg src={profileMockImage}/>
       <S.NicknameBox>{children}</S.NicknameBox>
-      <IcPlus />
+      {
+        !isClick ? <IcPlus /> : <IcCheck />
+      }
     </S.FriendItemWrapper>
   );
 };
