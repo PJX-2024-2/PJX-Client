@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
 export const MyPageWrapper = styled.div`
-  ${({ theme: { mixin } }) => mixin.flexCenter({})};
+  display: flex;
+  flex-direction: column;
   ${({ theme }) => theme.fonts.m_30_500};
   color: ${({ theme }) => theme.colors.gray[700]};
   width: 100%;
