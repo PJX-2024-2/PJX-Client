@@ -3,8 +3,9 @@ import styled from 'styled-components';
 export const SearchNoneWrapper = styled.div`
 display: flex;
 width: 100%;
-height: 100%;
+height: 100vh;
 background-color: white;
+z-index: 2;
 `;
 
 export const TextWrapper = styled.div`
