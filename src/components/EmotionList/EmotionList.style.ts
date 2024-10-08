@@ -9,3 +9,4 @@ border-radius: 8px;
 border: 1px solid rgba(0, 0, 0, 0.03);
 background-color: ${({theme})=> theme.colors.gray[50]};
 `;
+
