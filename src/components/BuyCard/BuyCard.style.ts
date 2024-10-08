@@ -34,6 +34,8 @@ border: 1px solid rgba(0, 0, 0, 0.12);
 `;
 
 export const BuyText = styled.div`
+color: ${({theme})=> theme.colors.gray[600]};
+${({theme})=>theme.fonts.m_12_500};
 `;
 
 export const BuyPictureWrapper = styled.div`
@@ -53,4 +55,5 @@ height: 15rem;
 export const BuyContent = styled.div`
 ${({ theme: { mixin } }) => mixin.flexBox({direction: 'column'})};
 width: 100%;
+gap:1rem;
 `;
