@@ -16,9 +16,10 @@ const Search = () => {
     return (
         <S.SearchWrapper>
             <S.BarWrapper>
-            <S.BackButton onClick={()=> navigate(-1)}>
+            {nickname 
+                ?<S.BackButton onClick={()=> navigate(-1)}>
                 <IcBack />
-            </S.BackButton>
+            </S.BackButton>:null}
             <SearchingBar value={nickname} onChange={handleInputChange}/>
             </S.BarWrapper>
             {nickname 
