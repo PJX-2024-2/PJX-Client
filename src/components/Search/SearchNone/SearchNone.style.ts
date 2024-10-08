@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
-export const SearchNoneWrapper = styled.div`
+export const SearchNoneWrapper = styled.div<{ hasNickname: boolean }>`
 display: flex;
-width: 100%;
+width: ${({ hasNickname }) => (hasNickname ? "37.5rem" : "100%")};
 height: 100vh;
 background-color: white;
 z-index: 2;
