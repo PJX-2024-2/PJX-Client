@@ -1,9 +1,9 @@
 import StepProps from '../../../types/StepPropsType';
 import BtnLarge from '../../common/Button/LargeButton/BtnLarge';
 import FriendList from '../../Friend/FriendList/FriendList';
-import OnboardingTitle from '../OnboardingTitle/OnboardingTitle';
 import * as S from './Step3.style';
 import React from 'react';
+import BigTitle from './../../common/Title/BigTitle/BigTitle';
 
 function Step3 ({ onNext }: StepProps){
   
@@ -14,11 +14,11 @@ function Step3 ({ onNext }: StepProps){
   return(
     <S.Step3Wrapper>
       <S.LayoutBox>
-        <OnboardingTitle>
+        <BigTitle>
           🙌 <br /> 
           또래 친구와<br />
           친구를 맺어보세요
-        </OnboardingTitle>
+        </BigTitle>
         <S.SubtitleText>내 데이터에 따라 나이와 연봉이 비슷한 친구들을 추천드려요.</S.SubtitleText>
         <FriendList />
       </S.LayoutBox>
