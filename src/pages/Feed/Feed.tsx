@@ -1,10 +1,11 @@
 import React from 'react';
 import * as S from './Feed.style';
 import Search from '../../components/Search/Search';
+import BuyCard from '../../components/BuyCard/BuyCard';
 
 const Feed = () => {
     return (
-        <S.FeedWrapper> <Search/>피드 페이지 입니다.</S.FeedWrapper>
+        <S.FeedWrapper> <Search/><BuyCard/></S.FeedWrapper>
     )
 }
 
