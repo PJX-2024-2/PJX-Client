@@ -1,7 +1,7 @@
 import React from 'react';
 interface IcThinkingProps extends React.SVGProps<SVGSVGElement> {}
 
-const IcThinking: React.FC<IcThinkingProps> = (props) => (
+const IcThinking = (props:IcThinkingProps) => (
 <svg {...props} width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g clip-path="url(#clip0_272_4227)">
 <path d="M84.658 75.2637C98.654 57.2786 96.4769 32.1753 79.7954 19.1937C63.1139 6.2122 38.2449 10.2684 24.2489 28.2534C10.253 46.2385 12.4301 71.3418 29.1116 84.3234C45.7931 97.3049 70.6621 93.2487 84.658 75.2637Z" fill="#CC9F00" stroke="black" stroke-width="2" stroke-miterlimit="10"/>

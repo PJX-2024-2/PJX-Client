@@ -1,7 +1,7 @@
 import React from 'react';
 interface IcHappyProps extends React.SVGProps<SVGSVGElement> {}
 
-const IcHappy: React.FC<IcHappyProps> = (props) => (
+const IcHappy = (props:IcHappyProps) => (
 <svg {...props} width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g clip-path="url(#clip0_272_4188)">
 <path d="M84.6578 76.2637C98.6538 58.2786 96.4767 33.1752 79.7952 20.1937C63.1137 7.2122 38.2447 11.2684 24.2488 29.2534C10.2528 47.2385 12.4299 72.3418 29.1114 85.3234C45.7929 98.3049 70.6619 94.2487 84.6578 76.2637Z" fill="#CC3300" stroke="black" stroke-width="2" stroke-miterlimit="10"/>

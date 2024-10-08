@@ -1,7 +1,7 @@
 import React from 'react';
 interface IcSurprisedProps extends React.SVGProps<SVGSVGElement> {}
 
-const IcSurprised: React.FC<IcSurprisedProps> = (props) => (
+const IcSurprised = (props:IcSurprisedProps) => (
 <svg {...props} width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g clip-path="url(#clip0_272_4247)">
 <path d="M84.6576 76.2639C98.6536 58.2787 96.4765 33.1753 79.7949 20.1937C63.1133 7.21209 38.2442 11.2683 24.2482 29.2534C10.2523 47.2385 12.4293 72.342 29.1109 85.3236C45.7925 98.3052 70.6616 94.249 84.6576 76.2639Z" fill="#7CB238" stroke="black" stroke-width="2" stroke-miterlimit="10"/>

@@ -1,7 +1,7 @@
 import React from "react"
 interface IcSadProps extends React.SVGProps<SVGSVGElement> {}
 
-const IcSad: React.FC<IcSadProps> = (props) => (
+const IcSad = (props:IcSadProps) => (
 <svg {...props} width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g clip-path="url(#clip0_272_4169)">
 <path d="M84.6593 76.2636C98.6553 58.2785 96.4782 33.1751 79.7967 20.1936C63.1152 7.21207 38.2462 11.2682 24.2503 29.2533C10.2543 47.2383 12.4314 72.3417 29.1129 85.3233C45.7944 98.3048 70.6634 94.2486 84.6593 76.2636Z" fill="#1E83E8" stroke="black" stroke-width="2" stroke-miterlimit="10"/>
