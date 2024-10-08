@@ -1,6 +1,9 @@
 import React from 'react';
-const IcPick = () => (
-<svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+interface IcPickProps extends React.SVGProps<SVGSVGElement> {}
+
+const IcPick: React.FC<IcPickProps> = (props) => (
+<svg {...props} width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g clip-path="url(#clip0_272_4272)">
 <path d="M84.658 76.2638C98.654 58.2787 96.4769 33.1753 79.7954 20.1938C63.1138 7.21224 38.2448 11.2684 24.2488 29.2535C10.2528 47.2386 12.4299 72.342 29.1115 85.3235C45.793 98.3051 70.6621 94.2489 84.658 76.2638Z" fill="#BEC3CC" stroke="#8C9097" stroke-width="2.34386" stroke-miterlimit="10"/>
 <mask id="mask0_272_4272" maskUnits="userSpaceOnUse" x="15" y="12" width="79" height="81">

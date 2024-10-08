@@ -1,6 +1,8 @@
 import React from 'react';
-const IcAngry = () => (
-<svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+interface IcAngryProps extends React.SVGProps<SVGSVGElement> {}
+
+const IcAngry: React.FC<IcAngryProps> = (props) => (
+<svg {...props} width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g clip-path="url(#clip0_272_4207)">
 <path d="M84.658 76.2637C98.6539 58.2786 96.4768 33.1753 79.7953 20.1937C63.1138 7.2122 38.2448 11.2684 24.2489 29.2534C10.2529 47.2385 12.43 72.3418 29.1115 85.3234C45.793 98.3049 70.662 94.2487 84.658 76.2637Z" fill="#C00FC4" stroke="black" stroke-width="2" stroke-miterlimit="10"/>
 <mask id="mask0_272_4207" maskUnits="userSpaceOnUse" x="15" y="12" width="79" height="81">
