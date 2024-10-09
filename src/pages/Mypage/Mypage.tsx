@@ -16,7 +16,7 @@ const Mypage = () => {
     {
       text: '내 또래 친구 목록',
       icon: <IcSearch />,
-      onclick: () => {navigate('/friends')},
+      onclick: () => {navigate('/mypage-friends')},
     },
   ];
 
@@ -38,12 +38,16 @@ const Mypage = () => {
     },
   ];
   
+  const handleProfile = () => {
+    navigate('/mypage-profile');
+  };
+
   return (
     <S.MyPageWrapper>
       <SmallTitle>마이페이지</SmallTitle>
       <S.ProfileBox>
         <S.ProflieImage src={mockImage}/>
-        <S.NicknameBox>
+        <S.NicknameBox onClick={() => handleProfile()}>
           닉네임
           <IcPen width={'1.8rem'} height={'1.8rem'}/>
         </S.NicknameBox>
