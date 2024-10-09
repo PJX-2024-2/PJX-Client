@@ -60,4 +60,7 @@ export const NavigateBox = styled.div`
   height: 4.6rem;
   padding: 1.2rem 1.6rem;
   gap: 0.8rem;
+  p {
+    width: 100%;
+  }
 `;

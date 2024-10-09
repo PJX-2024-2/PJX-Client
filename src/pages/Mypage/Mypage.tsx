@@ -2,9 +2,11 @@ import React from "react";
 import * as S from './Mypage.style';
 import SmallTitle from '../../components/common/Title/SmallTitle/SmallTitle';
 import mockImage from '../../assets/profileMockImage.png';
-import { IcCheck, IcPen } from '../../assets/svg';
+import { IcCheck, IcPen, IcRight, IcSearch } from '../../assets/svg';
 
 const Mypage = () => {
+  
+
   return (
     <S.MyPageWrapper>
       <SmallTitle>마이페이지</SmallTitle>
@@ -12,7 +14,7 @@ const Mypage = () => {
         <S.ProflieImage src={mockImage}/>
         <S.NicknameBox>
           닉네임
-          <IcPen />
+          <IcPen width={'1.8rem'} height={'1.8rem'}/>
         </S.NicknameBox>
       </S.ProfileBox>
       <S.SummaryBox>
@@ -23,11 +25,13 @@ const Mypage = () => {
       <S.NavigateField>
         <S.NavigateBox>
           <IcCheck />
-          내 지출 요약
+          <p>내 지출 요약</p>
+          <IcRight />
         </S.NavigateBox>
         <S.NavigateBox>
-          <IcPen />
-          내 또래 친구 목록
+          <IcSearch />
+          <p>내 또래 친구 목록</p>
+          <IcRight />
         </S.NavigateBox>
       </S.NavigateField>
     </S.MyPageWrapper>
