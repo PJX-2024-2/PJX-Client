@@ -22,6 +22,7 @@ export const ProflieImage = styled.img`
 export const NicknameBox = styled.div`
   ${({ theme: { mixin } }) => mixin.flexBox({ align: 'center' })};
   ${({ theme }) => theme.fonts.sb_16_600};
+  cursor: pointer;
   gap: 0.4rem;
 `;
 export const SummaryBox = styled.div`
@@ -60,6 +61,7 @@ export const NavigateBox = styled.div`
   height: 4.6rem;
   padding: 1.2rem 1.6rem;
   gap: 0.8rem;
+  cursor: pointer;
   p {
     width: 100%;
   }
