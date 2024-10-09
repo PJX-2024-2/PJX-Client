@@ -49,10 +49,9 @@ export const SummaryBox = styled.div`
     height: 2.9rem;
     gap: 0.4rem;
   };
-  span {
-    ${({ theme }) => theme.fonts.sb_22_600};
-    color: ${({ theme }) => theme.colors.normal.black};
-  };
+`;
+export const SummarySpan = styled.span<{isDays: boolean}>`
+  color: ${({ theme, isDays }) => (isDays ? theme.colors.primary.default : theme.colors.normal.black)};
 `;
 export const NavigateField = styled.div`
   ${({ theme: { mixin } }) => mixin.flexCenter({})};

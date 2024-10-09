@@ -58,7 +58,10 @@ const Mypage = () => {
         {
           summaries.map((summary) => (
             <p key={summary.label}>
-              <span>{summary.value}</span>{summary.text}
+              <S.SummarySpan isDays={summary.label === 'days'}>
+                {summary.value}
+              </S.SummarySpan>
+              {summary.text}
             </p>
           ))
         }
