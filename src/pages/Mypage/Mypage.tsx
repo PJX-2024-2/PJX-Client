@@ -49,7 +49,9 @@ const Mypage = () => {
         <S.ProflieImage src={mockImage}/>
         <S.NicknameBox onClick={() => handleProfile()}>
           닉네임
-          <IcPen width={'1.8rem'} height={'1.8rem'}/>
+          <S.IconBox>
+            <IcPen width={'1.8rem'} height={'1.8rem'}/>
+          </S.IconBox>
         </S.NicknameBox>
       </S.ProfileBox>
       <S.SummaryBox>

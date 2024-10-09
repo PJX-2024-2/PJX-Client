@@ -25,6 +25,13 @@ export const NicknameBox = styled.div`
   cursor: pointer;
   gap: 0.4rem;
 `;
+export const IconBox = styled.div`
+  ${({ theme: { mixin }}) => mixin.flexCenter({})};
+  background-color: ${({ theme }) => theme.colors.gray[200]};
+  border-radius: 100px;
+  width: 2.6rem;
+  height: 2.6rem;
+`
 export const SummaryBox = styled.div`
   background-color: ${({ theme }) => theme.colors.primary.bgDisabled};
   color: ${({ theme }) => theme.colors.gray[600]};
