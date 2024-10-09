@@ -24,7 +24,7 @@ const Mypage = () => {
       </S.SummaryBox>
       <S.NavigateField>
         <S.NavigateBox>
-          <IcCheck />
+          <IcCheck fill='#000000'/>
           <p>내 지출 요약</p>
           <IcRight />
         </S.NavigateBox>
