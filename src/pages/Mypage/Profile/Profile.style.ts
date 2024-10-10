@@ -24,8 +24,7 @@ export const EditIconBox = styled.div`
   border-radius: 100px;
   width: 2.6rem;
   height: 2.6rem;
-  margin-left: 4.4rem;
-  margin-top: 4.5rem;
+  margin: 4.5rem 0 0 4.5rem;
 `; 
 export const EditBox = styled.div`
   ${({ theme: { mixin } }) => mixin.flexBox({ direction: 'column' })};
@@ -52,5 +51,4 @@ export const EditSpan = styled.span`
 `;
 export const ButtonField = styled.div`
   ${({ theme: { mixin }}) => mixin.flexCenter({})};
-  padding-top: 
 `;
