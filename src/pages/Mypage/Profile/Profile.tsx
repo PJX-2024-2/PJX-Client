@@ -1,10 +1,10 @@
 import * as S from './Profile.style';
 import React from 'react';
 import Title from '../../../components/common/Title/Title';
-import { IcBack, IcPen } from '../../../assets/svg';
+import { IcBack } from '../../../assets/svg';
 import { useNavigate } from 'react-router-dom';
-import mockImage from '../../../assets/profileMockImage.png'
 import BtnLarge from '../../../components/common/Button/LargeButton/BtnLarge';
+import EditProfile from '../../../components/EditProfile/EditProfile';
 
 const Profile = () => {
   const navigate = useNavigate();
@@ -24,25 +24,7 @@ const Profile = () => {
         </S.IconBox>
         내  프로필
       </Title>
-
-      <S.ImageBox>
-        <S.ProfileImage src={mockImage}/>
-        <S.EditIconBox><IcPen width='1.8rem' height='1.8rem'/></S.EditIconBox>
-      </S.ImageBox>
-
-      <S.EditBox>
-        <S.EditItem>
-          <S.EditTitleText>이메일</S.EditTitleText>
-          <p>email@naver.com</p>
-          <S.EditSpan>수정</S.EditSpan>
-        </S.EditItem>
-        <S.EditItem>
-          <S.EditTitleText>닉네임</S.EditTitleText>
-          <p>이웃집 토토로</p>
-          <S.EditSpan>수정</S.EditSpan>
-        </S.EditItem>
-      </S.EditBox>
-
+      <EditProfile />
       <S.ButtonField>
         <BtnLarge onClick={() => handleSubmit()}>저장</BtnLarge>
       </S.ButtonField>
