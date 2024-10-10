@@ -8,7 +8,7 @@ interface TitleProps {
 
 const Title = ({ children, isLarge = true }: TitleProps) => {
   return(
-    <S.TitleWrapper isLarge={isLarge}>
+    <S.TitleWrapper $isLarge={isLarge}>
       {children}
     </S.TitleWrapper>
   );
