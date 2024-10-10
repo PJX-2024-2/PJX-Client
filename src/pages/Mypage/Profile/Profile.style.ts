@@ -28,8 +28,7 @@ export const EditIconBox = styled.div`
   margin-top: 4.5rem;
 `; 
 export const EditBox = styled.div`
-  display: flex;
-  flex-direction: column;
+  ${({ theme: { mixin } }) => mixin.flexBox({ direction: 'column' })};
   height: 41.3rem;
   gap: 1.4rem;
   padding-top: 1.8rem;
