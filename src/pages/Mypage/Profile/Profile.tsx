@@ -1,6 +1,6 @@
 import * as S from './Profile.style';
 import React from 'react';
-import SmallTitle from '../../../components/common/Title/SmallTitle/SmallTitle';
+import Title from '../../../components/common/Title/Title';
 import { IcBack, IcPen } from '../../../assets/svg';
 import { useNavigate } from 'react-router-dom';
 import mockImage from '../../../assets/profileMockImage.png'
@@ -18,12 +18,12 @@ const Profile = () => {
 
   return(
     <S.ProfileWrapper>  
-      <SmallTitle>
+      <Title isLarge={false}>
         <S.IconBox onClick={() => handleBack()}>
           <IcBack />
         </S.IconBox>
         내  프로필
-      </SmallTitle>
+      </Title>
 
       <S.ImageBox>
         <S.ProfileImage src={mockImage}/>

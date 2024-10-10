@@ -1,9 +1,9 @@
 import { useNavigate } from 'react-router-dom';
-import SmallTitle from '../../../components/common/Title/SmallTitle/SmallTitle';
 import FriendList from '../../../components/Friend/FriendList/FriendList';
 import * as S from './MypageFriends.style';
 import React from 'react';
 import { IcBack } from '../../../assets/svg';
+import Title from '../../../components/common/Title/Title';
 
 const MypageFriends = () => {
   const navigate = useNavigate();
@@ -13,12 +13,12 @@ const MypageFriends = () => {
 
   return(
     <S.MypageFriendsWrapper>
-      <SmallTitle>
+      <Title isLarge={false}>
         <S.IconBox onClick={() => handleBack()}>
           <IcBack />
         </S.IconBox>
         내 또래 친구 목록
-      </SmallTitle>
+      </Title>
       <S.FriendListBox>
         <FriendList />
       </S.FriendListBox>

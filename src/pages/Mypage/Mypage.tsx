@@ -1,6 +1,6 @@
 import React from "react";
 import * as S from './Mypage.style';
-import SmallTitle from '../../components/common/Title/SmallTitle/SmallTitle';
+import Title from './../../components/common/Title/Title';
 import mockImage from '../../assets/profileMockImage.png';
 import { IcCheck, IcPen, IcRight, IcSearch } from '../../assets/svg';
 import { useNavigate } from 'react-router-dom';
@@ -44,7 +44,7 @@ const Mypage = () => {
 
   return (
     <S.MyPageWrapper>
-      <SmallTitle>마이페이지</SmallTitle>
+      <Title isLarge={false}>마이페이지</Title>
       <S.ProfileBox>
         <S.ProflieImage src={mockImage}/>
         <S.NicknameBox onClick={() => handleProfile()}>
