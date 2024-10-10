@@ -1,6 +1,6 @@
 import React from 'react';
 
-type CheckProps = {
+interface CheckProps {
   fill: string;
 }
 
