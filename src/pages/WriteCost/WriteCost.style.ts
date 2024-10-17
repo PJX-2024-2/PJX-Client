@@ -10,7 +10,7 @@ ${({ theme }) => theme.fonts.m_30_500};
 export const SelectBox = styled.div`
 	${({ theme: { mixin } }) => mixin.flexBox({})};
 	padding-top: 4.4rem;
-	gap: 2.4rem;
+	gap: 6.4rem;
 `;
 export const ItemBox = styled.div`
 	${({ theme: { mixin } }) => mixin.flexCenter({})};
