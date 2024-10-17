@@ -1,20 +1,23 @@
 import AlarmItem from '../AlarmItem/AlarmItem';
 import * as S from './AlarmList.style';
 import React from 'react';
-import noAlarmImage from '../../../assets/image/noAlarm.png';
+import None from '../../common/None/None';
 const AlarmList = () => {
   const mockDatas = [
-    { name: '가', },
-    { name: '나', },
-    { name: '다', },
-    { name: '라', },
+    {name: '가', },
+    {name: '나', },
+    {name: '다', },
+    {name: '라', },
   ];
 
   return(
     <S.AlarmListWrapper>
       {
         mockDatas.length == 0 ?
-          <img src={noAlarmImage} />
+          <None>
+            알림 내역이 아직 없어요 <br />
+            친구들의 활동을 기다려주세요
+          </None>
         :
           mockDatas.map(mockData => (
             <AlarmItem 
