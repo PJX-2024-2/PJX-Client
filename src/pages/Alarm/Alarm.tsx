@@ -1,7 +1,7 @@
 import React from "react";
 import * as S from './Alarm.style';
 import Title from '../../components/common/Title/Title';
-import AlarmItem from '../../components/Alarm/AlarmItem/AlarmItem';
+import AlarmList from '../../components/Alarm/AlarmList/AlarmList';
 
 const Alarm = () => {
 
@@ -9,7 +9,7 @@ const Alarm = () => {
     <S.AlarmWrapper>
       <Title isLarge={false}>알림</Title>
       <S.AlarmBox>
-        <AlarmItem />
+        <AlarmList />
       </S.AlarmBox>
     </S.AlarmWrapper>
   );
