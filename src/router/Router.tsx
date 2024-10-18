@@ -11,6 +11,7 @@ import LayoutWithFooter from '../layouts/LayoutWithFooter';
 import WriteCost from '../pages/WriteCost/WriteCost';
 import MypageFriends from '../pages/Mypage/MypageFriends/MypageFriends';
 import Profile from '../pages/Mypage/Profile/Profile';
+import WriteSelf from '../pages/WriteSelf/WriteSelf';
 
 const router = createBrowserRouter([
   {
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
       {
         path: '/write-cost',
         element: <WriteCost />
+      },
+      {
+        path: '/write-cost-self',
+        element: <WriteSelf />,
       },
       {
         path: '/mypage-friends',
