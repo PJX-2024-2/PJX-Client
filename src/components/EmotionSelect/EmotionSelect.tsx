@@ -5,9 +5,9 @@ import { IcPlusRound } from '../../assets/svg';
 const EmotionSelect = () => {
     const [openModal,setOpenModal] = useState(false);
     return (
-        <S.EmotionSelectWrapper>
+        <S.EmotionSelectWrapper >
             <IcPlusRound style={{width: '3rem',height: '3rem'}} onClick={()=>setOpenModal(!openModal)}/>
-                {openModal? <S.EmotionModal>짜잔</S.EmotionModal>:null}
+                {openModal? <><S.ModalOpenBackGround onClick={()=>setOpenModal(!openModal)} openModal={openModal}></S.ModalOpenBackGround><S.EmotionModal>짜잔</S.EmotionModal></>:null}
         </S.EmotionSelectWrapper>
     )
 }
