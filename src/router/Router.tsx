@@ -11,6 +11,7 @@ import LayoutWithFooter from '../layouts/LayoutWithFooter';
 import WriteCost from '../pages/WriteCost/WriteCost';
 import MypageFriends from '../pages/Mypage/MypageFriends/MypageFriends';
 import Profile from '../pages/Mypage/Profile/Profile';
+import Loading from '../pages/Loading/Loading';
 
 const router = createBrowserRouter([
   {
@@ -20,7 +21,12 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <Start />
-      },{
+      },
+      {
+        path: '/loading',
+        element: <Loading />
+      },
+      {
         path: '/onboarding',
         element: <Onboarding />,
       },
