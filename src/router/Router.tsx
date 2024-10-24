@@ -12,6 +12,7 @@ import WriteCost from '../pages/WriteCost/WriteCost';
 import MypageFriends from '../pages/Mypage/MypageFriends/MypageFriends';
 import Profile from '../pages/Mypage/Profile/Profile';
 import Loading from '../pages/Loading/Loading';
+import LoginCallback from '../components/LoginCallback/LoginCallback';
 
 const router = createBrowserRouter([
   {
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
       {
         path: '/loading',
         element: <Loading />
+      },
+      {
+        path: '/auth/kakao',
+        element: <LoginCallback />,
       },
       {
         path: '/onboarding',
