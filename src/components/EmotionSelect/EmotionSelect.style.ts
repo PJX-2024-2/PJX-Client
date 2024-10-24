@@ -21,9 +21,12 @@ background-color: ${({ openModal }) => (openModal ? 'rgba(39, 38, 46, 0.25)' : '
 
 
 export const EmotionModal = styled.div`
+display: flex;
+justify-content: space-around;
 position: absolute;
 width: 37.5rem;
 height: 16rem;
+padding: 2rem 2rem;
 bottom:0;
 left:0;
 background-color: white;
