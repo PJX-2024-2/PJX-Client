@@ -12,7 +12,7 @@ export const EmotionSelectWrapper = styled.div`
 export const ModalOpenBackGround = styled.div<ModalOpenProps>`
 position: absolute;
 left:0;
-top:0;
+top:-10rem;
 width: 100%;
 height: 100vh;
 z-index: 3;
