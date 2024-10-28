@@ -1,15 +1,24 @@
 import BtnSmall from '../../common/Button/SmallButton/BtnSmall';
 import * as S from './CostName.style';
-import React from 'react';
+import React, { ChangeEvent } from 'react';
 
 interface CostNameProps {
   category: string;
+  setValues: React.Dispatch<React.SetStateAction<{
+    category: string;
+    price: number;
+    memo: string;
+    image: string;
+  }>>;
+  onPrev: VoidFunction;
 }
 
-const CostName = ({ category }: CostNameProps) => {
-  //Context 사용하기
-  const handleClick = () => {
-    alert('지출 내용 입력 완료');
+const CostName = ({ category, setValues, onPrev }: CostNameProps) => {
+  const onChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setValues((prevValues) => ({
+      ...prevValues,
+      category: e.target.value,
+    }));
   };
 
   return(
@@ -17,9 +26,10 @@ const CostName = ({ category }: CostNameProps) => {
       <S.NameInput 
         value={category}
         placeholder='지출 내용을 입력해주세요'
+        onChange={onChange}
       />
       <S.ButtonField>
-        <BtnSmall onClick={handleClick}>확인</BtnSmall>
+        <BtnSmall onClick={() => onPrev()}>확인</BtnSmall>
       </S.ButtonField>
     </S.CostNameWrapper>
   );

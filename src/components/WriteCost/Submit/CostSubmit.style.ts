@@ -34,6 +34,10 @@ export const Label = styled.label`
   margin: 1.2rem 0;
   gap: 1rem;
 `;
+export const PreviewImage = styled.img`
+  width: 31.5rem;
+  height: 13rem;
+`;
 export const MemoTextArea = styled.textarea`
   ${({ theme }) => theme.fonts.r_16_400};
   width: 34.3rem;

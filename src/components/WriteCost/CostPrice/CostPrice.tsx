@@ -2,10 +2,20 @@ import BtnContained from '../../common/Button/ContainedButton/BtnContained';
 import BtnSmall from '../../common/Button/SmallButton/BtnSmall';
 import * as S from './CostPrice.style';
 import React, { ChangeEvent } from 'react';
-import { useState } from 'react';
 
-const CostPrice = () => {
-  const [price, setPrice] = useState(0);
+interface CostPriceProps {
+  price: number;
+  category: string;
+  setValues: React.Dispatch<React.SetStateAction<{
+    category: string;
+    price: number;
+    memo: string;
+    image: string;
+  }>>;
+  onPrev: VoidFunction;
+}
+
+const CostPrice = ({ price, category, setValues, onPrev}: CostPriceProps) => {
   const counts = [
     {
       label: '1천원',
@@ -25,14 +35,17 @@ const CostPrice = () => {
     },
   ];
 
-  const handleSubmit = () => {
-    alert('가격 입력 완료');
-  };
   const onChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setPrice(Number(e.target.value));
+    setValues((prevValues) => ({
+      ...prevValues,
+      price: Number(e.target.value),
+    }));
   };
   const handlePrice = (value: number) => {
-    setPrice(price + value);
+    setValues((prevValues) => ({
+      ...prevValues,
+      price: price + value,
+    }));
   };
 
   return(
@@ -44,7 +57,7 @@ const CostPrice = () => {
           onChange={onChange}
         /> 원
       </S.InputBox>
-      <S.NameText>바이바이바나나</S.NameText>
+      <S.NameText>{category}</S.NameText>
       <S.CountButtonField>
         {
           counts.map((count) => (
@@ -59,7 +72,7 @@ const CostPrice = () => {
         }
       </S.CountButtonField>
       <S.ButotnField>
-        <BtnSmall onClick={handleSubmit}>확인</BtnSmall>
+        <BtnSmall onClick={() => onPrev()}>확인</BtnSmall>
       </S.ButotnField>
     </S.CostPriceWrapper>
   );

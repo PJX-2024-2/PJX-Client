@@ -4,17 +4,14 @@ import React from 'react';
 
 interface WriteHeaderProps {
   children: React.ReactNode;
+  onPrev: VoidFunction;
 }
 
-const WriteHeader = ({ children }: WriteHeaderProps) => {
-  //const navigate = useNavigate();
-  const handleBack = () => {
-    alert('뒤로가기');
-  };
+const WriteHeader = ({ children, onPrev }: WriteHeaderProps) => {
   
   return(
     <S.WriteHeaderWrapper>
-      <S.IconWrapper onClick={() => handleBack()}>
+      <S.IconWrapper onClick={() => onPrev()}>
         <IcBack />
       </S.IconWrapper>
       {children}

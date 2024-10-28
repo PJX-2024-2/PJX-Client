@@ -1,30 +1,73 @@
 import { IcPlus } from '../../../assets/svg';
 import BtnLarge from '../../common/Button/LargeButton/BtnLarge';
 import * as S from './CostSubmit.style';
-import React from 'react';
+import React, { ChangeEvent } from 'react';
 
-const CostSubmit = () => {
+interface CostSubmitProps {
+  onName: VoidFunction;
+  onCost: VoidFunction;
+  values: {
+    category: string;
+    price: number;
+    memo: string;
+    image: string;
+  };
+  setValues: React.Dispatch<React.SetStateAction<{
+    category: string;
+    price: number;
+    memo: string;
+    image: string;
+  }>>;
+}
+
+const CostSubmit = ({ onName, onCost, values, setValues }: CostSubmitProps) => {
   const handleSubmit = () => {
     alert('등록 완료');
   };
-  
+  const onChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
+    setValues((prevValues) => ({
+      ...prevValues,
+      memo: e.target.value,
+    }));
+  };
+
+  const onFile = (e: ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      const imgUrl = URL.createObjectURL(file);
+      setValues((prevValues) => ({
+        ...prevValues,
+        image: imgUrl,
+      }));
+    }
+  };
+
   return(
     <S.CostSubmitWrapper>
       <S.CostBox>
-        <S.PriceSpan>100</S.PriceSpan>원
+        <S.PriceSpan onClick={() => {onCost();}}>{values.price}</S.PriceSpan>원
       </S.CostBox>
-      <S.NameText>바이바이바나나</S.NameText>
+      <S.NameText onClick={() => {onName();}}>{values.category}</S.NameText>
+
       <S.Label
         htmlFor='imgInput'
       >
-        <IcPlus />
-        사진추가
+        {
+          values.image? (
+            <S.PreviewImage src={values.image} alt='preview' />
+          ) : 
+          <>
+            <IcPlus />
+            사진추가
+          </>  
+        }
       </S.Label>
       <S.FileInput 
         type='file'
         id='imgInput'
+        onChange={onFile}
       />
-      <S.MemoTextArea placeholder='메모를 여기에 작성'/>
+      <S.MemoTextArea placeholder='메모를 여기에 작성' onChange={onChange}/>
       <S.ButtonField>
         <BtnLarge onClick={handleSubmit}>등록하기</BtnLarge>
       </S.ButtonField>
