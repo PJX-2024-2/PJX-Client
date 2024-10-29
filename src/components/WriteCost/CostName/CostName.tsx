@@ -1,15 +1,11 @@
+import InputType from '../../../types/InputType';
 import BtnSmall from '../../common/Button/SmallButton/BtnSmall';
 import * as S from './CostName.style';
 import React, { ChangeEvent } from 'react';
 
 interface CostNameProps {
   category: string;
-  setValues: React.Dispatch<React.SetStateAction<{
-    category: string;
-    price: number;
-    memo: string;
-    image: string;
-  }>>;
+  setValues: React.Dispatch<React.SetStateAction<InputType>>;
   onPrev: VoidFunction;
 }
 

@@ -1,3 +1,4 @@
+import InputType from '../../../types/InputType';
 import BtnContained from '../../common/Button/ContainedButton/BtnContained';
 import BtnSmall from '../../common/Button/SmallButton/BtnSmall';
 import * as S from './CostPrice.style';
@@ -6,12 +7,7 @@ import React, { ChangeEvent } from 'react';
 interface CostPriceProps {
   price: number;
   category: string;
-  setValues: React.Dispatch<React.SetStateAction<{
-    category: string;
-    price: number;
-    memo: string;
-    image: string;
-  }>>;
+  setValues: React.Dispatch<React.SetStateAction<InputType>>;
   onPrev: VoidFunction;
 }
 

@@ -1,13 +1,14 @@
 import WriteHeader from '../../components/common/WriteHeader/WriteHeader';
 import CostName from '../../components/WriteCost/CostName/CostName';
 import CostSubmit from '../../components/WriteCost/Submit/CostSubmit';
+import InputType from '../../types/InputType';
 import CostPrice from './../../components/WriteCost/CostPrice/CostPrice';
 import * as S from './WriteSelf.style';
 import React, { useState } from 'react';
 
 const WriteSelf = () => {
   const [state, setState] = useState<string>('submit');
-  const [values, setValues] = useState({
+  const [values, setValues] = useState<InputType>({
     category: '지출 내역 입력',
     price:0,
     memo:'',

@@ -1,4 +1,5 @@
 import { IcPlus } from '../../../assets/svg';
+import InputType from '../../../types/InputType';
 import BtnLarge from '../../common/Button/LargeButton/BtnLarge';
 import * as S from './CostSubmit.style';
 import React, { ChangeEvent } from 'react';
@@ -6,18 +7,8 @@ import React, { ChangeEvent } from 'react';
 interface CostSubmitProps {
   onName: VoidFunction;
   onCost: VoidFunction;
-  values: {
-    category: string;
-    price: number;
-    memo: string;
-    image: string;
-  };
-  setValues: React.Dispatch<React.SetStateAction<{
-    category: string;
-    price: number;
-    memo: string;
-    image: string;
-  }>>;
+  values: InputType;
+  setValues: React.Dispatch<React.SetStateAction<InputType>>;
 }
 
 const CostSubmit = ({ onName, onCost, values, setValues }: CostSubmitProps) => {
