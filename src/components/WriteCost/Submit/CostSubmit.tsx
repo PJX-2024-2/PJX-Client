@@ -58,7 +58,7 @@ const CostSubmit = ({ onName, onCost, values, setValues }: CostSubmitProps) => {
         id='imgInput'
         onChange={onFile}
       />
-      <S.MemoTextArea placeholder='메모를 여기에 작성' onChange={onChange}/>
+      <S.MemoTextArea value={values.memo} placeholder='메모를 여기에 작성' onChange={onChange}/>
       <S.ButtonField>
         <BtnLarge onClick={handleSubmit}>등록하기</BtnLarge>
       </S.ButtonField>

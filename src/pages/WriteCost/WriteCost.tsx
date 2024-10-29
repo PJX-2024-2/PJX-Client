@@ -7,10 +7,10 @@ import { useNavigate } from 'react-router-dom';
 const WriteCost = () => {
 	const navigate = useNavigate();
 	const handleWriteAi = () => {
-    navigate('/write-cost-ai');
+    navigate('/write-cost-self', {state: {key: 'aiSubmit'}});
   };
 	const handleWriteSelf = () => {
-    navigate('/write-cost-self');
+    navigate('/write-cost-self', {state: {key: 'submit'}});
   };
 	return (
 		<S.WriteCostWrapper>

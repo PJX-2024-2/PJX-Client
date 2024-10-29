@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import WriteHeader from '../../components/common/WriteHeader/WriteHeader';
 import CostName from '../../components/WriteCost/CostName/CostName';
 import CostSubmit from '../../components/WriteCost/Submit/CostSubmit';
@@ -6,10 +6,14 @@ import InputType from '../../types/InputType';
 import CostPrice from './../../components/WriteCost/CostPrice/CostPrice';
 import * as S from './WriteSelf.style';
 import React, { useState } from 'react';
+import AiSubmit from '../../components/WriteCost/AiSubmit/AiSubmit';
 
 const WriteSelf = () => {
   const navigate = useNavigate();
-  const [state, setState] = useState<string>('submit');
+  const location = useLocation();
+  const navigateState = location.state.key;
+
+  const [state, setState] = useState<string>(navigateState);
   const [values, setValues] = useState<InputType>({
     category: '지출 내역 입력',
     price:0,
@@ -29,7 +33,7 @@ const WriteSelf = () => {
     :
       setState('submit')
   };
-
+  console.log(state);
   const steps = [
     {
       label: 'submit',
@@ -49,7 +53,7 @@ const WriteSelf = () => {
     {
       label: 'aiSubmit',
       title: 'AI 지출 등록',
-      component: <CostSubmit onName={handleName} onCost={handleCost} values={values} setValues={setValues}/>,
+      component: <AiSubmit setValues={setValues} onPrev={handlePrev}/>,
     }
   ];
   
