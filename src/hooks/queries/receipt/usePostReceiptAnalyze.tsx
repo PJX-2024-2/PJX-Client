@@ -9,14 +9,16 @@ export const POST_RECEIPT_QUERY_KEY: string[] = ['receiptData'];
 export const postReceiptImage = async (body: ReceiptImage) => {
     const formData = new FormData();
     formData.append('files',body.file);
-    aiPost(`/receipt/analyze`,formData);
+    const response: AxiosResponse = await aiPost(`/receipt/analyze`,formData);
+    
+    return response.data;
 };
 
 export const usePostReceiptAnalyze = ({body}:{body:ReceiptImage}) => {
     const queryClient = useQueryClient();
 
     const mutation = useMutation({
-        mutatioFn : postReceiptImage,
+        mutationFn : postReceiptImage,
         onSuccess: () => {
             queryClient.invalidateQueries({queryKey: [POST_RECEIPT_QUERY_KEY,body]});
         },
