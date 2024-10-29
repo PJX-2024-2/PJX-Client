@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios, { AxiosError, AxiosResponse } from 'axios';
 
 export const getAccessTokenLocalStorage = () => {
     const accessToken = localStorage.getItem('EXIT_ACCESS_TOKEN');
@@ -36,4 +36,41 @@ export const serverInstance = axios.create({
     headers: {
       "Content-Type": `multipart/form-data`,
     },
-  })
+  });
+
+  function interceptorResponseFulfilled(res: AxiosResponse) {
+    return res.status >= 200 && res.status < 300 ? res.data : Promise.reject(res.data);
+  }
+  
+  function interceptorResponseRejected(error: AxiosError) {
+    // @ts-ignore
+    return Promise.reject(new Error(error.response?.data?.message ?? error));
+  }
+  
+  serverInstance.interceptors.response.use(interceptorResponseFulfilled, interceptorResponseRejected);
+  aiInstance.interceptors.response.use(interceptorResponseFulfilled, interceptorResponseRejected);
+
+  export function aiPost<T>(...args: Parameters<typeof aiInstance.post>) {
+    return aiInstance.post<T>(...args);
+  }
+  
+  export function get<T>(...args: Parameters<typeof serverInstance.get>) {
+    return serverInstance.get<T, T>(...args);
+  }
+  
+  export function post<T>(...args: Parameters<typeof serverInstance.post>) {
+    return serverInstance.post<T>(...args);
+  }
+  
+  export function put<T>(...args: Parameters<typeof serverInstance.put>) {
+    return serverInstance.put<T>(...args);
+  }
+  
+  export function patch<T>(...args: Parameters<typeof serverInstance.patch>) {
+    return serverInstance.patch<T, T>(...args);
+  }
+  
+  export function del<T>(...args: Parameters<typeof serverInstance.delete>) {
+    return serverInstance.delete<T>(...args);
+  }
+  
