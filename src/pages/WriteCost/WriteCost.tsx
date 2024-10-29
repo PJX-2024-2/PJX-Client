@@ -2,8 +2,16 @@ import React from "react";
 import * as S from './WriteCost.style';
 import Title from '../../components/common/Title/Title';
 import { IcWriteAi, IcWriteSelf } from '../../assets/svg';
+import { useNavigate } from 'react-router-dom';
 
 const WriteCost = () => {
+	const navigate = useNavigate();
+	const handleWriteAi = () => {
+    navigate('/write-cost-ai');
+  };
+	const handleWriteSelf = () => {
+    navigate('/write-cost-self');
+  };
 	return (
 		<S.WriteCostWrapper>
 			<Title>
@@ -12,11 +20,11 @@ const WriteCost = () => {
 				선택해주세요
 			</Title>
 			<S.SelectBox>
-				<S.ItemBox>
+				<S.ItemBox onClick={() => handleWriteAi()}>
 					<IcWriteAi />
 					AI 영수증
 				</S.ItemBox>
-				<S.ItemBox>
+				<S.ItemBox onClick={() => handleWriteSelf()}>
 					<IcWriteSelf />
 					직접 작성
 				</S.ItemBox>
