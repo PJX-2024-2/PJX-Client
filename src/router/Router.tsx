@@ -8,10 +8,10 @@ import Feed from '../pages/Feed/Feed';
 import Alarm from '../pages/Alarm/Alarm';
 import Mypage from '../pages/Mypage/Mypage';
 import LayoutWithFooter from '../layouts/LayoutWithFooter';
-import WriteCost from '../pages/WriteCost/WriteCost';
+import WriteType from '../pages/WriteType/WriteType';
 import MypageFriends from '../pages/Mypage/MypageFriends/MypageFriends';
 import Profile from '../pages/Mypage/Profile/Profile';
-import WriteSelf from '../pages/WriteSelf/WriteSelf';
+import WriteCost from '../pages/WriteCost/WriteCost';
 
 const router = createBrowserRouter([
   {
@@ -26,12 +26,12 @@ const router = createBrowserRouter([
         element: <Onboarding />,
       },
       {
-        path: '/write-cost',
-        element: <WriteCost />
+        path: '/write-type',
+        element: <WriteType />
       },
       {
-        path: '/write-cost-self',
-        element: <WriteSelf />,
+        path: '/write-cost',
+        element: <WriteCost />,
       },
       {
         path: '/mypage-friends',
