@@ -12,7 +12,6 @@ import WriteCost from '../pages/WriteCost/WriteCost';
 import MypageFriends from '../pages/Mypage/MypageFriends/MypageFriends';
 import Profile from '../pages/Mypage/Profile/Profile';
 import WriteSelf from '../pages/WriteSelf/WriteSelf';
-import WriteAi from '../pages/WriteAi/WriteAi';
 
 const router = createBrowserRouter([
   {
@@ -33,10 +32,6 @@ const router = createBrowserRouter([
       {
         path: '/write-cost-self',
         element: <WriteSelf />,
-      },
-      {
-        path: '/write-cost-ai',
-        element: <WriteAi />,
       },
       {
         path: '/mypage-friends',
