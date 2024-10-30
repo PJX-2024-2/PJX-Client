@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const AiSubmitWrapper = styled.div`
   ${({ theme: { mixin }}) => mixin.flexCenter({})};
   width: 100%;
+  gap: 1.2rem;
 `;
 export const HorizontalLine = styled.div`
   background: ${({ theme }) => theme.colors.gray[200]};
@@ -17,7 +18,10 @@ export const InputBox = styled.div`
   padding: 1.2rem 0;
 `;
 export const TextBox = styled.div`
+  ${({ theme: { mixin }}) => mixin.flexBox({ direction: 'column' })};
   width: 100%;
+  gap: 0.2rem;
+  padding: 0.8rem 0;
   ${({ theme }) => theme.fonts.sb_13_600};
   p {
     ${({ theme }) => theme.fonts.m_11_500};
@@ -30,10 +34,9 @@ export const Label = styled.label`
   background-color: ${({ theme }) => theme.colors.gray[50]};
   color: ${({ theme }) => theme.colors.gray[500]};
   text-align: center;
-  width: 31.5rem;
-  height: 40rem;
+  width: 34.3rem;
+  height: 29.2rem;
   border-radius: 10px;
-  margin: 1.2rem 0;
   gap: 1rem;
 `;
 export const FileInput = styled.input`
@@ -45,4 +48,5 @@ export const PreviewImage = styled.img`
 `;
 export const ButtonField = styled.div`
   ${({ theme: { mixin}}) => mixin.flexCenter({})};
+  padding-top: 12rem;
 `;
