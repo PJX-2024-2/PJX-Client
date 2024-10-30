@@ -16,7 +16,7 @@ const CostName = ({ category, setValues, onPrev }: CostNameProps) => {
       category: e.target.value,
     }));
   };
-
+  console.log(onPrev)
   return(
     <S.CostNameWrapper>
       <S.NameInput 
