@@ -28,7 +28,7 @@ const WriteSelf = () => {
     setState('costPrice');
   }
   const handlePrev = () => {
-    state === 'submit' ?
+    state === 'submit' || 'aiSubmit' ?
       navigate('/write-cost')
     :
       setState('submit')
