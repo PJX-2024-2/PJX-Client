@@ -20,6 +20,7 @@ const WriteCost = () => {
     memo:'',
     image:'',
   });
+
   const handleName = () => {
     setState('costName');
     values.category === '지출 내역 입력' ? setValues({...values, category: '' }) : null;
@@ -53,7 +54,7 @@ const WriteCost = () => {
     {
       label: 'aiSubmit',
       title: 'AI 지출 등록',
-      component: <AiSubmit setValues={setValues} onPrev={handlePrev}/>,
+      component: <AiSubmit setValues={setValues} onState={setState}/>,
     }
   ];
   

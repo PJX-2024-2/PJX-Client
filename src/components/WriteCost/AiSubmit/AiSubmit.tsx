@@ -7,10 +7,10 @@ import InputType from '../../../types/InputType';
 
 interface AiSubmitProps {
   setValues: React.Dispatch<React.SetStateAction<InputType>>;
-  onPrev: VoidFunction;
+  onState: React.Dispatch<React.SetStateAction<string>>
 }
 
-const AiSubmit = ({ setValues, onPrev }: AiSubmitProps) => {
+const AiSubmit = ({ setValues, onState }: AiSubmitProps) => {
   const [imgUrl, setImgUrl] = useState('');
   const mockMemo = '토마토는 3천원';
   const mockCost = 3000;
@@ -32,7 +32,7 @@ const AiSubmit = ({ setValues, onPrev }: AiSubmitProps) => {
       price: mockCost,
       category: mockCategory,
     }));
-    onPrev();
+    onState('submit');
   };
 
   return(
