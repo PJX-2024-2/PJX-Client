@@ -43,8 +43,8 @@ export const FileInput = styled.input`
   display: none;
 `;
 export const PreviewImage = styled.img`
-  width: 31.5rem;
-  height: 40rem;
+  width: 34.3rem;
+  height: 29.2rem;
 `;
 export const ButtonField = styled.div`
   ${({ theme: { mixin}}) => mixin.flexCenter({})};
