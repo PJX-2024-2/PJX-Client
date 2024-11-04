@@ -1,6 +1,7 @@
 import { IcTitleIcon } from '../../assets/svg';
 import BtnKakaoLogin from '../../components/common/Button/KakaoLoginButton/BtnKakaoLogin';
 import BtnLarge from '../../components/common/Button/LargeButton/BtnLarge';
+import usePostReceiptAnalyze from '../../hooks/queries/receipt/usePostReceiptAnalyze';
 import { kakaoUrl } from '../../utils/login';
 import * as S from './Start.style';
 import React from 'react';
@@ -12,7 +13,7 @@ function Start (){
     window.location.href = kakaoUrl;
   };
   const handleNavigate = () => {
-    //첫 로그인 판단해서 온보딩 혹은 메인 페이지 이동
+    
     alert('이동');
   };
   console.log(import.meta.env.VITE_REST_API_KEY);

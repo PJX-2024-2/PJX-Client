@@ -6,14 +6,23 @@ import { REDIRECT_URI, REST_API_KEY, SERVER_BASE_URL } from '../../utils/login';
 const LoginCallback = () => {
   const code = new URL(document.location.toString()).searchParams.get('code');
   console.log(code);
-  console.log(SERVER_BASE_URL)
-  const getAccsessToken = async () => {
-    const response = await axios.get(`${SERVER_BASE_URL}/api/kakao/callbck`, {
-    params: {
-      code: code,
-    },
-    });
-    console.log(response);
+  console.log(SERVER_BASE_URL);
+  
+  const getAccessToken = async () => {
+    try {
+      const response = await axios.get(`${SERVER_BASE_URL}/api/kakao/callback/${code}`,
+      );
+      console.log(response.data); // 응답 데이터 출력
+    } catch (error) {
+      console.error('Error fetching access token:', error); // 오류 처리
+    }
+  };
+  
+  // getAccessToken 호출
+  if (code) {
+    getAccessToken();
+  } else {
+    console.error('Code parameter is missing from the URL.');
   }
   /*const POST_URL = `grant_type=authorization_code&client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}&code=${code}`;
 
@@ -29,9 +38,6 @@ const LoginCallback = () => {
     console.log(response);
   };
 */
-  useEffect(() => {
-    getAccsessToken();
-  })
   
   return(
     <Loading />
