@@ -4,6 +4,7 @@ import { useState, ChangeEvent } from 'react';
 import { IcPlus } from '../../../assets/svg';
 import BtnLarge from '../../common/Button/LargeButton/BtnLarge';
 import InputType from '../../../types/InputType';
+import usePostReceiptAnalyze from '../../../hooks/queries/receipt/usePostReceiptAnalyze';
 
 interface AiSubmitProps {
   setValues: React.Dispatch<React.SetStateAction<InputType>>;
@@ -12,27 +13,46 @@ interface AiSubmitProps {
 
 const AiSubmit = ({ setValues, onState }: AiSubmitProps) => {
   const [imgUrl, setImgUrl] = useState('');
+  const [selectedFile, setSelectedFile] = useState<File | null>(null);
+  const { mutate: postRecipt } = usePostReceiptAnalyze();
   const mockMemo = '토마토는 3천원';
   const mockCost = 3000;
-  const mockCategory = '토마토맛토';
 
   const onFile = (e: ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file) {
       const url = URL.createObjectURL(file);
       setImgUrl(url);
+      setSelectedFile(file);
     }
   };
   const handleSubmit = () => {
-    alert('AI로 전달');
-    setValues((prevValues) => ({
-      ...prevValues,
-      image: imgUrl,
-      memo: mockMemo,
-      price: mockCost,
-      category: mockCategory,
-    }));
-    onState('submit');
+    if (!selectedFile) {
+      alert("Please select an image first.");
+      return;
+    }
+    const body = { file: selectedFile};    
+    try{
+
+      postRecipt(body, {
+        onSuccess: (response) => {
+          setValues((prevValues) => ({
+            ...prevValues,
+            image: imgUrl,
+            memo: mockMemo,
+            price: mockCost,
+          }));
+          onState('submit');
+          console.log(response.result)
+        }
+      });
+      
+    }
+    catch(err) {
+      console.error(err);
+      alert("Error occurred while submitting the receipt.");
+      return;
+    }
   };
 
   return(
