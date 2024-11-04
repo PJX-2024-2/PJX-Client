@@ -15,8 +15,7 @@ const AiSubmit = ({ setValues, onState }: AiSubmitProps) => {
   const [imgUrl, setImgUrl] = useState('');
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const { mutate: postRecipt } = usePostReceiptAnalyze();
-  const mockMemo = '토마토는 3천원';
-  const mockCost = 3000;
+
 
   const onFile = (e: ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -26,6 +25,23 @@ const AiSubmit = ({ setValues, onState }: AiSubmitProps) => {
       setSelectedFile(file);
     }
   };
+
+  const parseLog = (text: string) => {
+    const regex = /\d+: (.+?) \$(\d{1,3}(?:,\d{3})*)/g;
+    let matches;
+    let resultString = '';
+    let resultPrice = 0;
+
+    // 모든 매치 결과를 반복
+    while ((matches = regex.exec(text)) !== null) {
+      const productName = matches[1].trim();
+      const price = matches[2].replace(/,/g, ''); // 가격에서 쉼표 제거
+      resultString += `${productName} - $${price}\n`;
+      resultPrice += Number(price);
+    }
+    return {resultString, resultPrice};
+  };
+
   const handleSubmit = () => {
     if (!selectedFile) {
       alert("Please select an image first.");
@@ -36,12 +52,13 @@ const AiSubmit = ({ setValues, onState }: AiSubmitProps) => {
 
       postRecipt(body, {
         onSuccess: (response) => {
+          const parsedRes = parseLog(response.result);
           setValues((prevValues) => ({
             ...prevValues,
             image: imgUrl,
-            memo: mockMemo,
-            price: mockCost,
-          }));
+            memo: parsedRes.resultString,
+            price: parsedRes.resultPrice,
+            }));
           onState('submit');
           console.log(response.result)
         }
@@ -50,7 +67,6 @@ const AiSubmit = ({ setValues, onState }: AiSubmitProps) => {
     }
     catch(err) {
       console.error(err);
-      alert("Error occurred while submitting the receipt.");
       return;
     }
   };
