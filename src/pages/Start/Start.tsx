@@ -1,3 +1,4 @@
+import axios from 'axios';
 import { IcTitleIcon } from '../../assets/svg';
 import BtnKakaoLogin from '../../components/common/Button/KakaoLoginButton/BtnKakaoLogin';
 import BtnLarge from '../../components/common/Button/LargeButton/BtnLarge';
@@ -5,10 +6,11 @@ import usePostReceiptAnalyze from '../../hooks/queries/receipt/usePostReceiptAna
 import { kakaoUrl } from '../../utils/login';
 import * as S from './Start.style';
 import React from 'react';
+import { SERVER_BASE_URL } from '../../utils/login';
 
 function Start (){
   //토큰 여부에 따른 버튼 조건부 렌더링
-  const handeleLogin = () => {
+  const handeleLogin = async () => {
     //로그인 연결
     window.location.href = kakaoUrl;
   };
