@@ -1,4 +1,3 @@
-import axios from 'axios';
 import { IcTitleIcon } from '../../assets/svg';
 import BtnKakaoLogin from '../../components/common/Button/KakaoLoginButton/BtnKakaoLogin';
 import BtnLarge from '../../components/common/Button/LargeButton/BtnLarge';
