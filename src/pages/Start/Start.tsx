@@ -5,13 +5,16 @@ import BtnLarge from '../../components/common/Button/LargeButton/BtnLarge';
 import { kakaoUrl } from '../../utils/login';
 import * as S from './Start.style';
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function Start (){
+  const navigate = useNavigate();
+
   const handeleLogin = async () => {
     window.location.href = kakaoUrl;
   };
   const handleNavigate = () => {
-    alert('이동');
+    navigate('/home');
   };
 
   return(
