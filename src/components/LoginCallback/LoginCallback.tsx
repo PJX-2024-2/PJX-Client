@@ -15,7 +15,6 @@ const LoginCallback = () => {
     }
   },[code]);
 
-  
   return(
     <Loading />
   );
