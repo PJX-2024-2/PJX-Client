@@ -8,7 +8,7 @@ const LoginCallback = () => {
   const { mutate: postCode }  = usePostAccessCode();
   const navigate = useNavigate();
   const handleNavigate = () => {
-    navigate('/home');
+    navigate('/');
   };
 
   useEffect(() => {
