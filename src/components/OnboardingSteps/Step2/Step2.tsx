@@ -3,8 +3,9 @@ import BtnSmall from '../../common/Button/SmallButton/BtnSmall';
 import OnboardingInput from '../OnboardingInput/OnboardingInput';
 import Title from '../../common/Title/Title';
 import * as S from './Step2.style';
-import { ChangeEvent, useState } from 'react';
+import { ChangeEvent, useEffect, useState } from 'react';
 import React from 'react';
+import axios from 'axios';
 
 function Step2 ({ onNext }: StepProps){
   const [value, setValue] = useState<string>('');
@@ -16,6 +17,19 @@ function Step2 ({ onNext }: StepProps){
     console.log(value);
     onNext();
   };
+  const getNickname = async () => {
+    const res = await axios.get(`https://www.savvymeals.store/api/onboarding/nickname-check`, {
+      params :{
+        nickname: value,
+      },
+    });
+    console.log(res);
+  };
+
+  useEffect(() => {
+    getNickname();
+  }, [value]);
+
   return(
     <S.Step2Wrapper>
       <Title>
