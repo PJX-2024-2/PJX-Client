@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import Loading from '../../pages/Loading/Loading';
 import usePostAccessCode from '../../hooks/queries/login/usePostAccessCode';
 import { useNavigate } from 'react-router-dom';
+import { authInstance } from '../../apis/apiInstance';
 
 const LoginCallback = () => {
   const code = new URL(document.location.toString()).searchParams.get('code');
@@ -11,12 +12,27 @@ const LoginCallback = () => {
     navigate('/');
   };
 
+  const getKakaoInfo = async () => {
+    const accessToken = localStorage.getItem('EXIT_ACCESS_TOKEN');
+    const response = await authInstance.get('/api/kakao/userinfo', {
+      params: {
+        accessToken: accessToken,
+      },
+    });
+  
+    return response.data;
+  };
+
   useEffect(() => {
     if (code) {
       const body = {'code':code};
       postCode(body, {
-        onSuccess: () => {
+        onSuccess: async () => {
+          const data = await getKakaoInfo();
+          localStorage.setItem('id', data.id);
+          console.log(data);
           handleNavigate();
+          
         },
       });
     } else {
