@@ -14,11 +14,15 @@ const CostContent = ({ selectedDate }: { selectedDate: Date }) => {
     const navigate = useNavigate();
     const currentDay = getDayName(selectedDate);
 
+    const handleEmoz = () => {
+        console.log("이모지 눌렸다.");
+    }
+
     return (
         <S.CostContentWrapper>
             <S.DayWrapper>
              <S.Day><p>오늘 {currentDay}</p>지출 한줄평을 작성해보세요.</S.Day>
-             <IcNoneEmoz/>
+             <div onClick={()=>handleEmoz}><IcNoneEmoz /></div>
              </S.DayWrapper>
              <S.AddContentBtn onClick={()=>navigate('/write-cost')}>+ 지출추가</S.AddContentBtn>
         </S.CostContentWrapper>

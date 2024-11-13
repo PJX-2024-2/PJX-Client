@@ -1,15 +1,17 @@
 import { IcPen } from '../../assets/svg';
 import React, { useState }  from "react";
 import * as S from './MonthlyCost.style';
+import { useNavigate } from 'react-router-dom';
 const MonthlyCost = () => {
+    const navigate = useNavigate();
     const [currentAmount, setCurrentAmount] = useState(50000);
-    const maxGoal = 100000;
+    const maxGoal = parseInt(localStorage.getItem('MONTHLY_GOAL') || '0', 10);
     const handleAmount = () => {
         setCurrentAmount((currentAmount / maxGoal) * 100);
     }
     return (
         <>
-        <S.IcPenWrapper><IcPen width={'2.2rem'} height={'2.2rem'}/></S.IcPenWrapper>
+        <S.IcPenWrapper onClick={()=>navigate('/monthly-goal')}><IcPen width={'2.2rem'} height={'2.2rem'}/></S.IcPenWrapper>
             <S.MonthlyPaidWrapper>
                 <p><span>닉네임</span> 이번달 지출</p>
                 {currentAmount}원
