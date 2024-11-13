@@ -2,9 +2,11 @@ import { IcPen } from '../../assets/svg';
 import React, { useState }  from "react";
 import * as S from './MonthlyCost.style';
 import { useNavigate } from 'react-router-dom';
+//import useGetPaid from '../../hooks/queries/home/useGetPaid';
 const MonthlyCost = () => {
     const navigate = useNavigate();
-    const [currentAmount, setCurrentAmount] = useState(50000);
+    /*const userPaid = useGetPaid();*/
+    const [currentAmount, setCurrentAmount] = useState(0);
     const maxGoal = parseInt(localStorage.getItem('MONTHLY_GOAL') || '0', 10);
     const handleAmount = () => {
         setCurrentAmount((currentAmount / maxGoal) * 100);
