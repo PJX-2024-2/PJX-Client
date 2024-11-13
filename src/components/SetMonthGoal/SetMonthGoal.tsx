@@ -4,10 +4,12 @@ import BtnSmall from '../common/Button/SmallButton/BtnSmall';
 import * as S from './SetMonthGoal.style';
 import React, { ChangeEvent, useState } from 'react';
 import WriteHeader from '../common/WriteHeader/WriteHeader';
+import usePostMonthGoal from '../../hooks/queries/home/usePostMonthGoal';
 
 
 const SetMonthGoal = () => {
     const navigate = useNavigate();
+    const postMonthGoalMutation = usePostMonthGoal();
     const [values, setValues] = useState({
         price:0,
         memo:'',
@@ -46,9 +48,20 @@ const SetMonthGoal = () => {
       };
 
       const handleSubmit = () => {
-        console.log("api 통신");
+        console.log("버튼 눌렸다.");
         localStorage.setItem('MONTHLY_GOAL',values.price.toString());
         navigate('/home');
+        const body = {
+            newGoal: values.price,
+        }
+        postMonthGoalMutation.mutate(body,{
+            onSuccess:(response)=> {
+                console.log(response);
+                console.log("api 통신 성공!");
+            }
+        })
+        
+        
     }
     
     return (
