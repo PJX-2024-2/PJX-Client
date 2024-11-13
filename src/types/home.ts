@@ -10,3 +10,7 @@ export type FeelList = {
 export type DayPaid = {
     date: string;
 }
+
+export type MothGoal = {
+    newGoal: number;
+}
