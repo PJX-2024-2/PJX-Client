@@ -11,16 +11,15 @@ function Step2 ({ onNext }: StepProps){
   const [value, setValue] = useState<string>('');
   const [debouncedValue, setDebouncedValue] = useState<string>(value);
 
-  const { data, isError } = useGetNickname(debouncedValue);  // debouncedValue로 API 요청
+  const { data, isError } = useGetNickname(debouncedValue);
 
-  // value가 변경될 때마다 debouncedValue를 일정 시간 뒤에 설정
   useEffect(() => {
     const timer = setTimeout(() => {
-      setDebouncedValue(value);  // debouncedValue를 업데이트
-    }, 10);  // 500ms 동안 대기 후 설정
+      setDebouncedValue(value);
+    }, 1);  
     console.log(data);
-    return () => clearTimeout(timer);  // 타이머를 취소하여 불필요한 요청 방지
-  }, [value]);  // value가 변경될 때마다 디바운스를 적용
+    return () => clearTimeout(timer);  
+  }, [value]); 
 
   const onChange = (e: ChangeEvent<HTMLInputElement>) => {
     setValue(e.target.value);
@@ -32,9 +31,6 @@ function Step2 ({ onNext }: StepProps){
 
   return(
     <S.Step2Wrapper>
-      {
-        isError && <p>에러 발생용</p>
-      }
       <Title>
         😎 <br /> 
         본인을 확인할 수 있는 <br />
@@ -45,6 +41,7 @@ function Step2 ({ onNext }: StepProps){
         name={value}
         value={value}
         onChange={onChange}
+        isError={isError}
       />
       <S.ButtonField>
         <BtnSmall onClick={handleNext}>확인</BtnSmall>

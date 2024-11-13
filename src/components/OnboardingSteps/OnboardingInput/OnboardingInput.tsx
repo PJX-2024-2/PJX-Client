@@ -7,9 +7,11 @@ interface OnboardingInputProps {
   value: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   children?: React.ReactNode
+  isError: boolean;
 }
 
-function OnboardingInput ({ placeholder, name, value, onChange, children }: OnboardingInputProps){
+function OnboardingInput ({ placeholder, name, value, onChange, children, isError }: OnboardingInputProps){
+  console.log(isError)
   return(
     <S.OnboardingInputWrapper>
       <S.InputAreaBox>
@@ -20,6 +22,7 @@ function OnboardingInput ({ placeholder, name, value, onChange, children }: Onbo
           onChange={onChange}
         />
         {children}
+        {isError && <p>이미 존재하는 닉네임입니다. </p>}
       </S.InputAreaBox>
     </S.OnboardingInputWrapper>
   );
