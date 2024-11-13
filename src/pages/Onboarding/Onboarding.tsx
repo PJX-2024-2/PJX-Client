@@ -1,45 +1,18 @@
 import * as S from './Onboarding.style';
 import React from 'react';
 import Step2 from '../../components/OnboardingSteps/Step2/Step2';
-import useFunnel from '../../hooks/common/useFunnel';
 import { useNavigate } from 'react-router-dom';
 
 function Onboarding (){
   const navigate = useNavigate();
-  const {currentStep, setCurrentStep, Funnel, Step} = useFunnel();
-
-  const steps = [
-
-    {
-      name: 'step2',
-      component: Step2,
-      nextStep: '/'
-    },
-  ];
 
   const handleNextStep = () => {
-    const nextStepIndex = steps.findIndex((step) => step.name === currentStep) + 1;
-
-    if (nextStepIndex < steps.length) {
-      setCurrentStep(steps[nextStepIndex].name);
-    } else {
-      navigate(steps[nextStepIndex - 1].nextStep);
-    }
-  
+    navigate('/');
   };
 
   return(
     <S.OnboardingWrapper>
-      <Funnel>
-        {steps.map(step => (
-          <Step 
-            key={step.name} 
-            name={step.name}
-          >
-            <step.component onNext={handleNextStep}/>
-          </Step>
-        ))}
-      </Funnel>
+      <Step2 onNext={handleNextStep}/>
     </S.OnboardingWrapper>
   );
 }
