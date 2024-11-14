@@ -1,9 +1,10 @@
-interface CostSummary {
+interface CostSummaryType {
   kakaoId: number;
   date: string;
   amount: number;
   description: string;
   note?: string;
+  image: string;
 }
 
-export default CostSummary;
+export default CostSummaryType;

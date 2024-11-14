@@ -56,8 +56,8 @@ const AiSubmit = ({ setValues, onState }: AiSubmitProps) => {
           setValues((prevValues) => ({
             ...prevValues,
             image: imgUrl,
-            memo: parsedRes.resultString,
-            price: parsedRes.resultPrice,
+            note: parsedRes.resultString,
+            amount: parsedRes.resultPrice,
             }));
           onState('submit');
           console.log(response.result)
