@@ -6,11 +6,12 @@ import * as S from './Step2.style';
 import { ChangeEvent, useEffect, useState } from 'react';
 import React from 'react';
 import useGetNickname from '../../../hooks/queries/onboarding/useGetNickname';
+import usePostNickname from '../../../hooks/queries/onboarding/usePostNickname';
 
 function Step2 ({ onNext }: StepProps){
   const [value, setValue] = useState<string>('');
   const [debouncedValue, setDebouncedValue] = useState<string>(value);
-
+  const { mutate: postNickname } = usePostNickname();
   const { data, isError } = useGetNickname(debouncedValue);
 
   useEffect(() => {
@@ -24,8 +25,14 @@ function Step2 ({ onNext }: StepProps){
   const onChange = (e: ChangeEvent<HTMLInputElement>) => {
     setValue(e.target.value);
   };
+
+
   const handleNext = () => {
-    console.log(value);
+    const data = {
+      kakaoId: Number(localStorage.getItem('id')),
+      nickname: value,
+    };
+    postNickname(data);
     onNext();
   };
 

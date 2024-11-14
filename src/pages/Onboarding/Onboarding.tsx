@@ -7,7 +7,7 @@ function Onboarding (){
   const navigate = useNavigate();
 
   const handleNextStep = () => {
-    navigate('/');
+    navigate('/home');
   };
 
   return(
