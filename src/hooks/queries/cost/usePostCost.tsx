@@ -6,7 +6,9 @@ import CostSummaryType from '../../../types/cost/costSummary';
 export const COST_QUERY_KEY = ['costSummary'];
 
 export const postCost = async (body: CostSummaryType) => {
-  const res: AxiosResponse = await post('/api/spending/manual/create', body.image ,{
+  const formData = new FormData();
+  formData.append('files', body.image); 
+  const res: AxiosResponse = await post('/api/spending/manual/create', formData ,{
     headers: {
       'Content-Type': 'multipart/form-data',
     },

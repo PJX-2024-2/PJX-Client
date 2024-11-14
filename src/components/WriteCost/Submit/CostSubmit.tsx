@@ -13,12 +13,34 @@ interface CostSubmitProps {
 }
 
 const CostSubmit = ({ onName, onCost, values, setValues }: CostSubmitProps) => {
+  const formatDate = (date: Date) => {
+    const year = date.getFullYear();
+    const month = date.getMonth() + 1; 
+    const day = date.getDate();
+
+    return `${year}-${month < 0 ? '0' + month : month}-${day < 10 ? '0' + day : day}`;
+  };
+  const date = new Date();
+  const curDate = formatDate(date);
+  console.log(curDate);
   const { mutate: postCost } = usePostCost();
   
   
   const handleSubmit = () => {
-    alert('등록 완료');
-  };
+    const body = {
+      kakaoId: Number(localStorage.getItem('id')),
+      date: curDate,
+      amount: values.amount,
+      description: values.description,
+      note: values.note,
+      image: values.image,
+    };
+    postCost(body, {
+      onSuccess: (data) => {
+        console.log(data);
+      },
+    });
+};
   const onChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
     setValues((prevValues) => ({
       ...prevValues,

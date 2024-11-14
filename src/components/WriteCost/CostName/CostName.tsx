@@ -16,7 +16,6 @@ const CostName = ({ description, setValues, onPrev }: CostNameProps) => {
       description: e.target.value,
     }));
   };
-  console.log(onPrev)
   return(
     <S.CostNameWrapper>
       <S.NameInput 
