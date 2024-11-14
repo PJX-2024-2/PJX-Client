@@ -9,7 +9,7 @@ interface PaidData {
 }
 
 export const fetchSummary = async (): Promise<PaidData> => {
-    const response: AxiosResponse<PaidData> = await get('/api/spending/current');
+    const response: AxiosResponse<PaidData> = await get('/api/spending/goal');
     return response.data;
 };
 

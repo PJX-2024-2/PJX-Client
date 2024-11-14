@@ -51,7 +51,9 @@ const SetMonthGoal = () => {
         console.log("버튼 눌렸다.");
         localStorage.setItem('MONTHLY_GOAL',values.price.toString());
         navigate('/home');
+        const kakaoId = parseInt(localStorage.getItem('id')||'0',10);
         const body = {
+          kakaoId,
             newGoal: values.price,
         }
         postMonthGoalMutation.mutate(body,{
