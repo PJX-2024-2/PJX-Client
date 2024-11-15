@@ -3,33 +3,26 @@ import BtnSmall from '../../common/Button/SmallButton/BtnSmall';
 import OnboardingInput from '../OnboardingInput/OnboardingInput';
 import Title from '../../common/Title/Title';
 import * as S from './Step2.style';
-import { ChangeEvent, useEffect, useState } from 'react';
+import { ChangeEvent, useState } from 'react';
 import React from 'react';
 import useGetNickname from '../../../hooks/queries/onboarding/useGetNickname';
 import usePostNickname from '../../../hooks/queries/onboarding/usePostNickname';
 
 function Step2 ({ onNext }: StepProps){
   const [value, setValue] = useState<string>('');
-  const [debouncedValue, setDebouncedValue] = useState<string>(value);
   const { mutate: postNickname } = usePostNickname();
-  const { data, isError } = useGetNickname(debouncedValue);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setDebouncedValue(value);
-    }, 1);  
-    console.log(data);
-    return () => clearTimeout(timer);  
-  }, [value]); 
+  const { data, isError} = useGetNickname(value);
+  console.log(data);
+  console.log(isError)
 
   const onChange = (e: ChangeEvent<HTMLInputElement>) => {
     setValue(e.target.value);
   };
 
-
   const handleNext = () => {
     const data = {
-      kakaoId: Number(localStorage.getItem('id')),
+      //kakaoId: Number(localStorage.getItem('id')),
+      kakaoId: 3779100752,
       nickname: value,
     };
     postNickname(data);

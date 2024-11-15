@@ -11,7 +11,6 @@ interface OnboardingInputProps {
 }
 
 function OnboardingInput ({ placeholder, name, value, onChange, children, isError }: OnboardingInputProps){
-  console.log(isError)
   return(
     <S.OnboardingInputWrapper>
       <S.InputAreaBox>

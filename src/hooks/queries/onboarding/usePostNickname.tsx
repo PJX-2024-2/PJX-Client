@@ -1,6 +1,7 @@
 import { useMutation } from '@tanstack/react-query';
-import { AxiosResponse } from 'axios';
+import axios, { AxiosResponse } from 'axios';
 import { post } from '../../../apis/apiInstance';
+import { SERVER_BASE_URL } from '../../../utils/login';
 
 interface NicknameInterface {
   kakaoId: number;
@@ -10,7 +11,7 @@ interface NicknameInterface {
 export const POST_NICKNAME_QUERY_KEY = ['nicknameData'];
 
 export const postNickname = async (data: NicknameInterface) => {
-  const res: AxiosResponse = await post('/api/onboarding', data);
+  const res: AxiosResponse = await axios.post(`${SERVER_BASE_URL}/api/onboarding`, data);
   return res.data;
 };
 
