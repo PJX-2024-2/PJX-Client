@@ -1,8 +1,9 @@
-import React, { useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import Loading from '../../pages/Loading/Loading';
 import usePostAccessCode from '../../hooks/queries/login/usePostAccessCode';
 import { useNavigate } from 'react-router-dom';
 import { authInstance } from '../../apis/apiInstance';
+import UserInfoContext from '../../context/User/UserInfoContext';
 
 const LoginCallback = () => {
   const code = new URL(document.location.toString()).searchParams.get('code');
@@ -12,6 +13,7 @@ const LoginCallback = () => {
     navigate('/');
   };
 
+  const { setUserInfo } = useContext(UserInfoContext);
   const getKakaoInfo = async () => {
     const accessToken = localStorage.getItem('EXIT_ACCESS_TOKEN');
     const response = await authInstance.get('/api/kakao/userinfo', {
@@ -31,6 +33,10 @@ const LoginCallback = () => {
           const data = await getKakaoInfo();
           localStorage.setItem('id', data.id);
           console.log(data);
+          setUserInfo({
+            nickname: data.nickname,
+            profileImage: data.profile_image,
+          });
           handleNavigate();
           
         },

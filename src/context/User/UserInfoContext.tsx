@@ -1,7 +1,7 @@
 import React,{ createContext, ReactNode, useState } from 'react';
 import UserInfoType from '../../types/userInfo';
 
-interface UserInfoContext {
+interface UserInfoContextType {
   userInfo: UserInfoType;
   setUserInfo: (userInfo: UserInfoType) => void;
 }
@@ -11,7 +11,7 @@ const initialValue: UserInfoType = {
   nickname: '',
 };
 
-const UserInfoContext = createContext<UserInfoContext>({
+const UserInfoContext = createContext<UserInfoContextType>({
   userInfo: initialValue,
   setUserInfo: () => {},
 });
