@@ -1,11 +1,11 @@
 import { useMutation } from '@tanstack/react-query';
 import { post } from '../../../apis/apiInstance';
 import { AxiosResponse } from 'axios';
-import { MothGoal } from '../../../types/home';
+import { MonthGoal } from '../../../types/home';
 
 export const POST_MONTH_GOAL_QUERY_KEY = ['monthGoal'];
 
-export const postMonthGoal = async (body:MothGoal) => {
+export const postMonthGoal = async (body:MonthGoal) => {
 
   const response: AxiosResponse = await post(`/api/spending/goal`, body);
   return response.data;
