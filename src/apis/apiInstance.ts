@@ -26,7 +26,7 @@ export const serverInstance = axios.create({
     baseURL: import.meta.env.VITE_APP_SERVER_BASE_URL,
     withCredentials: true,
     headers: {
-      Authorization: `Bearer ${getAccessTokenLocalStorage()}`,
+      Authorization: `${getAccessTokenLocalStorage()}`,
     },
   });
 

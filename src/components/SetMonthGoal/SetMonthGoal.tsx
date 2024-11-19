@@ -51,16 +51,8 @@ const SetMonthGoal = () => {
         console.log("버튼 눌렸다.");
         localStorage.setItem('MONTHLY_GOAL',values.price.toString());
         navigate('/home');
-        
-        const body = {
-            newGoal: values.price,
-        }
-        postMonthGoalMutation.mutate(body,{
-            onSuccess:(response)=> {
-                console.log(response);
-                console.log("api 통신 성공!");
-            }
-        })
+
+        postMonthGoalMutation.mutate(values.price)
         
         
     }
