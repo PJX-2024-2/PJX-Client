@@ -16,7 +16,7 @@ const usePostAccessCode = () => {
     mutationFn: postAccessCode,
     onSuccess: (response) => {
       localStorage.setItem('KAKAO_TOKEN', response.access_token);
-      localStorage.setItem('EXIT_REFRESH_TOKEN', response.refresh_token);
+      localStorage.setItem('KAKAO_REFRESH_TOKEN', response.refresh_token);
       console.log('전송 성공');
     },
     onError: (error) => {
