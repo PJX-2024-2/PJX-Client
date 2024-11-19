@@ -4,7 +4,6 @@ import { post } from '../../../apis/apiInstance';
 import { SERVER_BASE_URL } from '../../../utils/login';
 
 interface NicknameInterface {
-  kakaoId: number;
   nickname: string;
 }
 

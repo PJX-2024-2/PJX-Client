@@ -19,8 +19,6 @@ function Step2 ({ onNext }: StepProps){
 
   const handleNext = () => {
     const data = {
-      //kakaoId: Number(localStorage.getItem('id')),
-      kakaoId: 3779100752,
       nickname: value,
     };
     postNickname(data);
