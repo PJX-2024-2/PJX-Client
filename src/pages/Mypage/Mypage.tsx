@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import * as S from './Mypage.style';
 import Title from './../../components/common/Title/Title';
-import mockImage from '../../assets/profileMockImage.png';
 import { IcPen, IcRight, IcSearch } from '../../assets/svg';
 import { useNavigate } from 'react-router-dom';
 import BtnLarge from '../../components/common/Button/LargeButton/BtnLarge';
