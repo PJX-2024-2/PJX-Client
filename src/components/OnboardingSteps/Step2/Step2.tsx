@@ -18,10 +18,10 @@ function Step2 ({ onNext }: StepProps){
   };
 
   const handleNext = () => {
-    const data = {
+    /*const data = {
       "nickname": value,
     };
-    postNickname(data);
+    postNickname(data);*/
     onNext();
   };
 
