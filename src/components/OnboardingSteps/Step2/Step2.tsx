@@ -19,7 +19,7 @@ function Step2 ({ onNext }: StepProps){
 
   const handleNext = () => {
     const data = {
-      nickname: value,
+      "nickname": value,
     };
     postNickname(data);
     onNext();
