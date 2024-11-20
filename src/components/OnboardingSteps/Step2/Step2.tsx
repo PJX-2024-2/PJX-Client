@@ -6,11 +6,11 @@ import * as S from './Step2.style';
 import { ChangeEvent, useState } from 'react';
 import React from 'react';
 import useGetNickname from '../../../hooks/queries/onboarding/useGetNickname';
-import usePostNickname from '../../../hooks/queries/onboarding/usePostNickname';
+//import usePostNickname from '../../../hooks/queries/onboarding/usePostNickname';
 
 function Step2 ({ onNext }: StepProps){
   const [value, setValue] = useState<string>('');
-  const { mutate: postNickname } = usePostNickname();
+  //const { mutate: postNickname } = usePostNickname();
   const { isError } = useGetNickname(value);
 
   const onChange = (e: ChangeEvent<HTMLInputElement>) => {
