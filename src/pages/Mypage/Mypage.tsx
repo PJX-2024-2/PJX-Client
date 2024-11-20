@@ -5,9 +5,13 @@ import mockImage from '../../assets/profileMockImage.png';
 import { IcPen, IcRight, IcSearch } from '../../assets/svg';
 import { useNavigate } from 'react-router-dom';
 import BtnLarge from '../../components/common/Button/LargeButton/BtnLarge';
+import useGetProfile from '../../hooks/queries/mypage/useGetMypageInfo';
 
 const Mypage = () => {
   const navigate = useNavigate();
+  const  { data } = useGetProfile();
+  console.log(data);
+
   const options = [
   /*  {
       text: '내 지출 요약',
@@ -55,7 +59,7 @@ const Mypage = () => {
     <S.MyPageWrapper>
       <Title isLarge={false}>마이페이지</Title>
       <S.ProfileBox>
-        <S.ProflieImage src={mockImage}/>
+        <S.ProflieImage src={data.data}/>
         <S.NicknameBox onClick={() => handleProfile()}>
           닉네임
           <S.IconBox>
