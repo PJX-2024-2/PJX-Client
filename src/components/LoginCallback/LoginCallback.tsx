@@ -35,8 +35,8 @@ const LoginCallback = () => {
           localStorage.setItem('id', data.userInfo.id);
           console.log(data);
           setUserInfo({
-            nickname: data.nickname,
-            profileImage: data.profile_image,
+            nickname: data.userInfo.properties.nickname,
+            profileImage: data.userInfo.properties.profile_image,
           });
           handleNavigate();
           

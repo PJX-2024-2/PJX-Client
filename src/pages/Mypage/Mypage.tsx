@@ -49,7 +49,7 @@ const Mypage = () => {
       <S.MyPageWrapper>
         <Title isLarge={false}>마이페이지</Title>
         <S.ProfileBox>
-          <S.ProflieImage src={mockImage}/>
+          <S.ProflieImage src={userInfo.profileImage}/>
           <S.NicknameBox onClick={() => handleProfile()}>
             {userInfo.nickname}
             <S.IconBox>
