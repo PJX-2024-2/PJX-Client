@@ -28,7 +28,6 @@ const CostSubmit = ({ onName, onCost, values, setValues }: CostSubmitProps) => {
   
   const handleSubmit = () => {
     const body = {
-      kakaoId: Number(localStorage.getItem('id')),
       date: curDate,
       amount: values.amount,
       description: values.description,

@@ -1,5 +1,4 @@
 interface CostSummaryType {
-  kakaoId: number;
   date: string;
   amount: number;
   description: string;
