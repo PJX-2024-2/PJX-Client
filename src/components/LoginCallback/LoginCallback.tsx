@@ -15,7 +15,7 @@ const LoginCallback = () => {
 
   const { setUserInfo } = useContext(UserInfoContext);
   const getKakaoInfo = async () => {
-    const accessToken = localStorage.getItem('EXIT_ACCESS_TOKEN');
+    const accessToken = localStorage.getItem('KAKAO_TOKEN');
     const response = await authInstance.get('/api/kakao/userinfo', {
       params: {
         accessToken: accessToken,
@@ -31,7 +31,8 @@ const LoginCallback = () => {
       postCode(body, {
         onSuccess: async () => {
           const data = await getKakaoInfo();
-          localStorage.setItem('id', data.id);
+          localStorage.setItem('EXIT_ACCESS_TOKEN', data.jwtToken);
+          localStorage.setItem('id', data.userInfo.id);
           console.log(data);
           setUserInfo({
             nickname: data.nickname,
