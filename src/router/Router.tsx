@@ -56,7 +56,15 @@ const router = createBrowserRouter([
       {
         path: '/monthly-goal',
         element: <SetMonthGoal/>,
-      }
+      },
+      {
+        path: '/mypage-friends',
+        element: <MypageFriends />
+      },
+      {
+        path: '/mypage-profile',
+        element: <Profile />,
+      },
     ],
   },
   {
