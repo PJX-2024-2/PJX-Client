@@ -17,7 +17,7 @@ const MonthlyCost = () => {
         <S.IcPenWrapper onClick={()=>navigate('/monthly-goal')}><IcPen width={'2.2rem'} height={'2.2rem'}/></S.IcPenWrapper>
             <S.MonthlyPaidWrapper>
                 <p ><span>닉네임</span> 이번달 지출</p>
-                원
+                1000원
             </S.MonthlyPaidWrapper>
             <S.MonthlyGoalWrapper>
                 <p>목표 지출 <span> {maxGoal}만원</span></p>
