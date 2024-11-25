@@ -13,15 +13,15 @@ function Start (){
     window.location.href = kakaoUrl;
   };
   const handleNavigate = () => {
-    navigate('/home');
+    navigate('/onboarding');
   };
 
   return(
     <S.StartWrapper>
-      <S.TitleText>AI활용</S.TitleText>
-      <S.SubtitleText>지출내역 관리</S.SubtitleText>
+      <S.TitleText>식비달인</S.TitleText>
+      <S.SubtitleText>AI활용 지출내역 관리</S.SubtitleText>
       <S.IntroText>똑똑하게 관리해봐요!💸</S.IntroText>
-      <IcTitleIcon />
+      <IcTitleIcon style={{marginTop: '50px'}}/>
       <S.ButtonField>
         {
           localStorage.getItem('EXIT_ACCESS_TOKEN') ? 
