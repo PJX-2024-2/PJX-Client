@@ -52,6 +52,14 @@ const router = createBrowserRouter([
         path: '/mypage-profile',
         element: <Profile />,
       },
+      {
+        path: '/mypage-friends',
+        element: <MypageFriends />
+      },
+      {
+        path: '/mypage-profile',
+        element: <Profile />,
+      },
     ],
   },
   {

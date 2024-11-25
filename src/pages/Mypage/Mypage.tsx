@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from "react";
 import * as S from './Mypage.style';
 import Title from './../../components/common/Title/Title';
-import { IcPen, IcRight, IcSearch } from '../../assets/svg';
-import { useNavigate } from 'react-router-dom';
 import BtnLarge from '../../components/common/Button/LargeButton/BtnLarge';
 import useGetProfile from '../../hooks/queries/mypage/useGetMypageInfo';
 import usePostSummary from '../../hooks/queries/mypage/usePostSummary';
+//import mockImage from '../../assets/profileMockImage.png';
+import { IcCheck, IcPen, IcRight, IcSearch } from '../../assets/svg';
+import { useNavigate } from 'react-router-dom';
+import UserInfoContext, { UserInfoProvider } from '../../context/User/UserInfoContext';
 
 const Mypage = () => {
+  const { userInfo } = React.useContext(UserInfoContext);
   const navigate = useNavigate();
   const  { data } = useGetProfile();
   console.log(data);
@@ -60,44 +63,44 @@ const Mypage = () => {
     alert('ai분석');
   };
   return (
-    <S.MyPageWrapper>
+    <UserInfoProvider>
       <button onClick={() => handleTemp()}>버튼버튼</button>
-      <Title isLarge={false}>마이페이지</Title>
-      <S.ProfileBox>
-        <S.ProflieImage src={data.data}/>
-        <S.NicknameBox onClick={() => handleProfile()}>
-          닉네임
-          <S.IconBox>
-            <IcPen width={'1.8rem'} height={'1.8rem'}/>
-          </S.IconBox>
-        </S.NicknameBox>
-      </S.ProfileBox>
-      <S.SummaryBox>
-        {
-          summaries.map((summary) => (
-            <p key={summary.label}>
-              <S.SummarySpan isDays={summary.label === 'days'}>
-                {summary.value === 0 ? '?' : summary.value}
-              </S.SummarySpan>
-              {summary.text}
-            </p>
-          ))
-        }
-      </S.SummaryBox>
-
-      <S.NavigateField>
-        <BtnLarge onClick={handleAiAnalyze}>AI 분석 결과 요청하기</BtnLarge>
-        {
-          options.map((option) => (
-            <S.NavigateBox key={option.text} onClick={option.onclick}>
-              {option.icon}
-              <p>{option.text}</p>
-              <IcRight />
-            </S.NavigateBox>
-          ))
-        }
-      </S.NavigateField>
-    </S.MyPageWrapper>
+      <S.MyPageWrapper>
+        <Title isLarge={false}>마이페이지</Title>
+        <S.ProfileBox>
+          <S.ProflieImage src={userInfo.profileImage}/>
+          <S.NicknameBox onClick={() => handleProfile()}>
+            {userInfo.nickname}
+            <S.IconBox>
+              <IcPen width={'1.8rem'} height={'1.8rem'}/>
+            </S.IconBox>
+          </S.NicknameBox>
+        </S.ProfileBox>
+        <S.SummaryBox>
+          {
+            summaries.map((summary) => (
+              <p key={summary.label}>
+                <S.SummarySpan isDays={summary.label === 'days'}>
+                  {summary.value}
+                </S.SummarySpan>
+                {summary.text}
+              </p>
+            ))
+          }
+        </S.SummaryBox>
+        <S.NavigateField>
+          {
+            options.map((option) => (
+              <S.NavigateBox key={option.text} onClick={option.onclick}>
+                {option.icon}
+                <p>{option.text}</p>
+                <IcRight />
+              </S.NavigateBox>
+            ))
+          }
+        </S.NavigateField>
+      </S.MyPageWrapper>
+    </UserInfoProvider>
   );
 };
 
