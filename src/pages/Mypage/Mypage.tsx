@@ -1,16 +1,21 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import * as S from './Mypage.style';
 import Title from './../../components/common/Title/Title';
 import { IcPen, IcRight, IcSearch } from '../../assets/svg';
 import { useNavigate } from 'react-router-dom';
 import BtnLarge from '../../components/common/Button/LargeButton/BtnLarge';
 import useGetProfile from '../../hooks/queries/mypage/useGetMypageInfo';
+import usePostSummary from '../../hooks/queries/mypage/usePostSummary';
 
 const Mypage = () => {
   const navigate = useNavigate();
   const  { data } = useGetProfile();
   console.log(data);
 
+  const { mutate: postSummary } = usePostSummary();
+  const handleTemp = () => {
+    postSummary();
+  }
   const options = [
   /*  {
       text: '내 지출 요약',
@@ -56,6 +61,7 @@ const Mypage = () => {
   };
   return (
     <S.MyPageWrapper>
+      <button onClick={() => handleTemp()}>버튼버튼</button>
       <Title isLarge={false}>마이페이지</Title>
       <S.ProfileBox>
         <S.ProflieImage src={data.data}/>
