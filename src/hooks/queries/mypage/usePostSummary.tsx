@@ -3,7 +3,7 @@ import { useMutation } from '@tanstack/react-query';
 import axios, { AxiosResponse } from 'axios';
 
 export const postSummary = async () => {
-  const body = { user_id: 11, };
+  const body = { user_id: 8, };
   const res: AxiosResponse = await axios.post('https://mytestserver.shop/api/v1/spending/analyze', body, {
     headers: {
       "Content-Type": 'application/json',

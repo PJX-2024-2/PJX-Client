@@ -12,8 +12,8 @@ import UserInfoContext, { UserInfoProvider } from '../../context/User/UserInfoCo
 const Mypage = () => {
   const { userInfo } = React.useContext(UserInfoContext);
   const navigate = useNavigate();
-  const  { data } = useGetProfile();
-  console.log(data);
+  //const  { data } = useGetProfile();
+  //console.log(data);
 
   const { mutate: postSummary } = usePostSummary();
   const handleTemp = () => {
