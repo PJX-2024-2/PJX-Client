@@ -7,10 +7,9 @@ export const COST_QUERY_KEY = ['costSummary'];
 
 export const postCost = async (body: CostSummaryType) => {
   const formData = new FormData();
-  formData.append('images', body.image); 
-
-  const temp = ['emblem.png'];
-  const res: AxiosResponse = await post('/api/spending/manual/create', formData ,{
+  formData.append('images', body.file);
+  
+  const res: AxiosResponse = await post('/api/spending/create', formData ,{
     headers: {
       'Content-Type': 'multipart/form-data',
     },

@@ -3,7 +3,7 @@ interface CostSummaryType {
   amount: number;
   description: string;
   note?: string;
-  image: string;
+  file: File;
 }
 
 export default CostSummaryType;

@@ -1,9 +1,10 @@
+import { useNavigate } from 'react-router-dom';
 import { IcPlus } from '../../../assets/svg';
 import usePostCost from '../../../hooks/queries/cost/usePostCost';
 import InputType from '../../../types/InputType';
 import BtnLarge from '../../common/Button/LargeButton/BtnLarge';
 import * as S from './CostSubmit.style';
-import React, { ChangeEvent } from 'react';
+import React, { ChangeEvent, useState } from 'react';
 
 interface CostSubmitProps {
   onName: VoidFunction;
@@ -13,6 +14,11 @@ interface CostSubmitProps {
 }
 
 const CostSubmit = ({ onName, onCost, values, setValues }: CostSubmitProps) => {
+  const date = new Date();
+  const { mutate: postCost } = usePostCost();
+  const [file, setFile] = useState<File | null>(null);
+  const navigate = useNavigate();
+
   const formatDate = (date: Date) => {
     const year = date.getFullYear();
     const month = date.getMonth() + 1; 
@@ -20,25 +26,23 @@ const CostSubmit = ({ onName, onCost, values, setValues }: CostSubmitProps) => {
 
     return `${year}-${month < 0 ? '0' + month : month}-${day < 10 ? '0' + day : day}`;
   };
-  const date = new Date();
   const curDate = formatDate(date);
-  console.log(curDate);
-  const { mutate: postCost } = usePostCost();
-  
-  
   const handleSubmit = () => {
-    const body = {
-      date: curDate,
-      amount: values.amount,
-      description: values.description,
-      note: values.note,
-      image: values.image,
-    };
-    postCost(body, {
-      onSuccess: (data) => {
-        console.log(data);
-      },
-    });
+    if(file){
+      const body = {
+        date: curDate,
+        amount: values.amount,
+        description: values.description,
+        note: values.note,
+        file: file,
+      };
+      postCost(body, {
+        onSuccess: (data) => {
+          console.log(data);
+          navigate('/home');
+        },
+      });
+    }
 };
   const onChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
     setValues((prevValues) => ({
@@ -49,12 +53,15 @@ const CostSubmit = ({ onName, onCost, values, setValues }: CostSubmitProps) => {
 
   const onFile = (e: ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
+    console.log(file)
     if (file) {
       const imgUrl = URL.createObjectURL(file);
+      console.log(imgUrl)
       setValues((prevValues) => ({
         ...prevValues,
         image: imgUrl,
       }));
+      setFile(file);
     }
   };
 
