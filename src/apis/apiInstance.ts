@@ -26,14 +26,16 @@ export const serverInstance = axios.create({
     baseURL: import.meta.env.VITE_APP_SERVER_BASE_URL,
     withCredentials: true,
     headers: {
-      //Authorization: `Bearer ${getAccessTokenLocalStorage()}`,
-      Authorization: `Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIzNzU0MDExMzgyIiwiaWF0IjoxNzMxOTQwNzMwLCJleHAiOjI0ODg4MDQ3MzB9.mZ-UYSbnlmaoiYpNlfbh3yQ6XIo7X5-kkZuRo5Oajysr1sF_sjnz3xIV_zQmiSt_mIhr3ovDOZVCChvjFbXJAA`
+      Authorization: `Bearer ${getAccessTokenLocalStorage()}`,
     },
   });
 
   export const aiInstance = axios.create({
     baseURL: import.meta.env.VITE_APP_AI_BASE_URL,
     withCredentials: true,
+    headers: {
+      Authorization: `Bearer ${getAccessTokenLocalStorage()}`,
+    },
   });
 
   function interceptorResponseFulfilled(res: AxiosResponse) {
