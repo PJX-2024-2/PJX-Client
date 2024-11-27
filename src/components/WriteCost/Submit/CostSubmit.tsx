@@ -53,10 +53,8 @@ const CostSubmit = ({ onName, onCost, values, setValues }: CostSubmitProps) => {
 
   const onFile = (e: ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
-    console.log(file)
     if (file) {
       const imgUrl = URL.createObjectURL(file);
-      console.log(imgUrl)
       setValues((prevValues) => ({
         ...prevValues,
         image: imgUrl,
