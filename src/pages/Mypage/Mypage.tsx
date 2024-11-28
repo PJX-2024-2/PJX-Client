@@ -4,13 +4,14 @@ import Title from './../../components/common/Title/Title';
 import usePostSummary from '../../hooks/queries/mypage/usePostSummary';
 import { IcPen } from '../../assets/svg';
 import { useNavigate } from 'react-router-dom';
-import UserInfoContext, { UserInfoProvider } from '../../context/User/UserInfoContext';
+import { UserInfoProvider } from '../../context/User/UserInfoContext';
 import useGetProfile from '../../hooks/queries/mypage/useGetMypageInfo';
 
 const Mypage = () => {
-  const { userInfo } = React.useContext(UserInfoContext);
+  //const { userInfo } = React.useContext(UserInfoContext);
   const navigate = useNavigate();
-  const { data } = useGetProfile(); 
+  const userNickname = localStorage.getItem('userNickname');
+  const { data } = useGetProfile();
   const { mutate: postSummary } = usePostSummary();
   
   const [summaryValues, setSummaryValues] = useState({
@@ -45,7 +46,7 @@ const Mypage = () => {
         <S.ProfileBox>
           <S.ProflieImage src={data.data}/>
           <S.NicknameBox onClick={() => handleProfile()}>
-            {userInfo.nickname}
+            {userNickname}
             <S.IconBox>
               <IcPen width={'1.8rem'} height={'1.8rem'}/>
             </S.IconBox>
