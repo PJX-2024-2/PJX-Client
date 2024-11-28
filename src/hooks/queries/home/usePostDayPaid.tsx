@@ -7,7 +7,9 @@ export const POST_DAY_PAID_LIST_QUERY_KEY = ['dayPaidList'];
 
 export const postDayPaid = async (body:DayPaid) => {
 
-  const response: AxiosResponse = await post(`/api/spending/manual/list`, body);
+  const response: AxiosResponse = await post(`/api/spending/manual/list`,null,{
+    params: { body },
+  });
   return response.data;
 };
 
