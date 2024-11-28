@@ -5,13 +5,14 @@ import usePostSummary from '../../hooks/queries/mypage/usePostSummary';
 import { IcPen } from '../../assets/svg';
 import { useNavigate } from 'react-router-dom';
 import UserInfoContext, { UserInfoProvider } from '../../context/User/UserInfoContext';
+import useGetProfile from '../../hooks/queries/mypage/useGetMypageInfo';
 
 const Mypage = () => {
   const { userInfo } = React.useContext(UserInfoContext);
   const navigate = useNavigate();
-
+  const { data } = useGetProfile(); 
   const { mutate: postSummary } = usePostSummary();
-
+  
   const [summaryValues, setSummaryValues] = useState({
     amount: 0,
     category: '',
@@ -42,7 +43,7 @@ const Mypage = () => {
       <S.MyPageWrapper>
         <Title isLarge={false}>마이페이지</Title>
         <S.ProfileBox>
-          <S.ProflieImage src={userInfo.profileImage}/>
+          <S.ProflieImage src={data.data}/>
           <S.NicknameBox onClick={() => handleProfile()}>
             {userInfo.nickname}
             <S.IconBox>
