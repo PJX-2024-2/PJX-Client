@@ -18,19 +18,19 @@ const Mypage = () => {
   const { mutate: postSummary } = usePostSummary();
   const handleTemp = () => {
     postSummary();
-  }
+  }/*
   const options = [
   /*  {
       text: '내 지출 요약',
       icon: <IcCheck fill='#000000' />,
       onclick: () => {navigate('/')},
-    },*/
+    },
     {
       text: '내 또래 친구 목록',
       icon: <IcSearch />,
       onclick: () => {navigate('/mypage-friends')},
     },
-  ];
+  ];*/
 
   const [summaryValues, setSummaryValues] = useState({
     days: 0,
@@ -80,7 +80,7 @@ const Mypage = () => {
           {
             summaries.map((summary) => (
               <p key={summary.label}>
-                <S.SummarySpan isDays={summary.label === 'days'}>
+                <S.SummarySpan $isDays={summary.label === 'days'}>
                   {summary.value}
                 </S.SummarySpan>
                 {summary.text}
@@ -89,14 +89,14 @@ const Mypage = () => {
           }
         </S.SummaryBox>
         <S.NavigateField>
-          {
+          {/*
             options.map((option) => (
               <S.NavigateBox key={option.text} onClick={option.onclick}>
                 {option.icon}
                 <p>{option.text}</p>
                 <IcRight />
               </S.NavigateBox>
-            ))
+            ))*/
           }
         </S.NavigateField>
       </S.MyPageWrapper>
