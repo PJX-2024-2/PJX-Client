@@ -7,12 +7,8 @@ export const POST_Feel_QUERY_KEY = ['feelData'];
 
 export const postFeel = async (body: Feel) => {
 
-  const response: AxiosResponse = await post(`/api/users/submit-reaction`,null,{
-    params: {
-      date: body.date,
-      reactionType: body.reactionType,
-    }
-  });
+  const queryString = `date=${body.date}?reactionType=${body.reactionType}`;
+  const response: AxiosResponse = await post(`/api/users/submit-reaction?${queryString}`);
   return response.data;
 };
 
