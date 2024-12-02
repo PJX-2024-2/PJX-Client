@@ -26,15 +26,15 @@ const CostContent = ({ selectedDate }: { selectedDate: Date}) => {
     const navigate = useNavigate();
     const currentDay = getDayName(selectedDate);
     const { mutate: dayPaid } = usePostDayPaid();
-    const paidContentExample = {
-        note: "바이바이 샐러드",
-        amount: 42000,
-        description: "집 근처에 있는 샐러드 가게에 갔는데 안사먹을 수가 없었다...진짜 대박 맛집이었어...애들아 다들 먹어....ㅋㅋㅋ",
-        images: [
-            "https://github.com/user-attachments/assets/aec0820f-3805-4951-876f-8ae8912daf11", // 첫 번째 이미지 URL
-            "https://github.com/user-attachments/assets/aec0820f-3805-4951-876f-8ae8912daf11"  // 두 번째 이미지 URL
-        ]
-    };
+    // const paidContentExample = {
+    //     note: "바이바이 샐러드",
+    //     amount: 42000,
+    //     description: "집 근처에 있는 샐러드 가게에 갔는데 안사먹을 수가 없었다...진짜 대박 맛집이었어...애들아 다들 먹어....ㅋㅋㅋ",
+    //     images: [
+    //         "https://github.com/user-attachments/assets/aec0820f-3805-4951-876f-8ae8912daf11", // 첫 번째 이미지 URL
+    //         "https://github.com/user-attachments/assets/aec0820f-3805-4951-876f-8ae8912daf11"  // 두 번째 이미지 URL
+    //     ]
+    // };
     const [paidList, setPaidList] = useState<{
         note: string;
         amount: number;
