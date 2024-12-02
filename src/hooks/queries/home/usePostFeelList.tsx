@@ -7,7 +7,7 @@ export const POST_Feel_QUERY_KEY = ['feelDataList'];
 
 export const postFeelList = async (body:FeelList) => {
 
-  const response: AxiosResponse = await post(`/api/users/reactions/by-month`, body);
+  const response: AxiosResponse = await post(`/api/reaction/reactions/by-month`, body);
   return response.data;
 };
 
