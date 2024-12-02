@@ -35,24 +35,29 @@ const CostContent = ({ selectedDate }: { selectedDate: Date}) => {
     //         "https://github.com/user-attachments/assets/aec0820f-3805-4951-876f-8ae8912daf11"  // 두 번째 이미지 URL
     //     ]
     // };
-    const [paidList, setPaidList] = useState<{
+    const [spendingList, setSpendingList] = useState<
+    Array<{
         note: string;
         amount: number;
         description: string;
         images: string[];
-    } | null>(null);
+    }>
+>([]);
     useEffect(()=>{
-        const response = dayPaid(formatDate(selectedDate), {
+        dayPaid(formatDate(selectedDate), {
             onSuccess: (data) => {
-              console.log(data);
-              setPaidList(data.spendlingList || null);
+                console.log(data);
+                if (data.spendingList && data.spendingList.length > 0) {
+                    setSpendingList(data.spendingList);
+                } else {
+                    setSpendingList([]); // 데이터가 없는 경우 빈 배열로 설정
+                }
             },
-          });
-        console.log(response);
+        });
     },[selectedDate, dayPaid])
     
 
-    const hasPaidContent = Boolean(paidList && paidList.note);
+    const hasPaidContent = spendingList.length > 0;
 
     return (
         <S.CostContentWrapper>
@@ -65,14 +70,16 @@ const CostContent = ({ selectedDate }: { selectedDate: Date}) => {
                     + 지출추가
                 </S.AddContentBtn>
             )}
-            {hasPaidContent && paidList && (
-                <PaidContent
-                    note={paidList.note}
-                    amount={paidList.amount}
-                    description={paidList.description}
-                    images={paidList.images}
-                />
-            )}
+            {hasPaidContent &&
+                spendingList.map((item, index) => (
+                    <PaidContent
+                        key={index} // 각 PaidContent에 고유한 key 제공
+                        note={item.note}
+                        amount={item.amount}
+                        description={item.description}
+                        images={item.images}
+                    />
+                ))}
         </S.CostContentWrapper>
     )
 }
