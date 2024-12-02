@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import * as S from './CostContent.style';
 import { useNavigate } from "react-router-dom";
 import EmotionSelect from "../EmotionSelect/EmotionSelect";
@@ -26,14 +26,6 @@ const CostContent = ({ selectedDate }: { selectedDate: Date}) => {
     const navigate = useNavigate();
     const currentDay = getDayName(selectedDate);
     const { mutate: dayPaid } = usePostDayPaid();
-    useEffect(()=>{
-        const response = dayPaid(formatDate(selectedDate), {
-            onSuccess: (data) => {
-              console.log(data);
-            },
-          });
-        console.log(response);
-    },[selectedDate, dayPaid])
     const paidContentExample = {
         note: "바이바이 샐러드",
         amount: 42000,
@@ -43,24 +35,44 @@ const CostContent = ({ selectedDate }: { selectedDate: Date}) => {
             "https://github.com/user-attachments/assets/aec0820f-3805-4951-876f-8ae8912daf11"  // 두 번째 이미지 URL
         ]
     };
+    const [paidList, setPaidList] = useState<{
+        note: string;
+        amount: number;
+        description: string;
+        images: string[];
+    } | null>(null);
+    useEffect(()=>{
+        const response = dayPaid(formatDate(selectedDate), {
+            onSuccess: (data) => {
+              console.log(data);
+              setPaidList(data.spendlingList || null);
+            },
+          });
+        console.log(response);
+    },[selectedDate, dayPaid])
+    
 
-    const hasPaidContent = Boolean(paidContentExample.note);
+    const hasPaidContent = Boolean(paidList && paidList.note);
 
     return (
         <S.CostContentWrapper>
             <S.DayWrapper>
                 <S.Day><p>오늘 {currentDay}</p>지출 한줄평을 작성해보세요.</S.Day>
-                <EmotionSelect/>
+                {hasPaidContent && <EmotionSelect />}
             </S.DayWrapper>
             {!hasPaidContent && (
-                <S.AddContentBtn onClick={() => navigate('/write-type')}>+ 지출추가</S.AddContentBtn>
+                <S.AddContentBtn onClick={() => navigate('/write-type')}>
+                    + 지출추가
+                </S.AddContentBtn>
             )}
-            <PaidContent 
-                note={paidContentExample.note} 
-                amount={paidContentExample.amount} 
-                description={paidContentExample.description} 
-                images={paidContentExample.images}
-            />
+            {hasPaidContent && paidList && (
+                <PaidContent
+                    note={paidList.note}
+                    amount={paidList.amount}
+                    description={paidList.description}
+                    images={paidList.images}
+                />
+            )}
         </S.CostContentWrapper>
     )
 }
