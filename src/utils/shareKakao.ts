@@ -5,6 +5,8 @@ declare global {
 };
 
 const shareKakao = () => {
+  const nickname = localStorage.getItem('nickname');
+  const url = import.meta.env.PROD ? import.meta.env.VITE_APP_URL : import.meta.env.VITE_LOCAL_URL;
   if(window.Kakao){
     const kakao = window.Kakao;
     if(!kakao.initialized) {
@@ -13,21 +15,19 @@ const shareKakao = () => {
     kakao.Share.sendDefault({
       objectType: 'feed',
       content: {
-        title: '오늘의 디저트',
-        description: '친구의 한달 지출 내역을 확인해보세요',
-        imageUrl:
-          '../assets/profileMockImage.png',
+        title: `${nickname}님의 한달 지출 내역`,
+        description: '친구의 이번 달 지출 달력을 확인해보세요',
         link: {
-          mobileWebUrl: 'https://pjx-client.vercel.app',
-          webUrl: 'https://pjx-client.vercel.app',
+          mobileWebUrl: url,
+          webUrl: url,
         },
       },
       buttons: [
         {
           title: '친구의 지출 보러가기',
           link: {
-            mobileWebUrl: 'https://pjx-client.vercel.app/home',
-            webUrl: 'https://pjx-client.vercel.app/home',
+            mobileWebUrl: `${url}/home`,
+            webUrl: `${url}/home`,
           },
         },
       ],
