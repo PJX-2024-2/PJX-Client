@@ -63,7 +63,7 @@ const CostContent = ({ selectedDate }: { selectedDate: Date}) => {
         <S.CostContentWrapper>
             <S.DayWrapper>
                 <S.Day><p>오늘 {currentDay}</p>지출 한줄평을 작성해보세요.</S.Day>
-                {hasPaidContent && <EmotionSelect />}
+                {hasPaidContent && <EmotionSelect selectedDate={selectedDate} />}
             </S.DayWrapper>
             {!hasPaidContent && (
                 <S.AddContentBtn onClick={() => navigate('/write-type')}>
