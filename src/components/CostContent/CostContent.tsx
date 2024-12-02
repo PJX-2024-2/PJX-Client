@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import * as S from './CostContent.style';
 import { useNavigate } from "react-router-dom";
 import EmotionSelect from "../EmotionSelect/EmotionSelect";
 import PaidContent from "../PaidContent/PaidContent";
+import usePostDayPaid from "../../hooks/queries/home/usePostDayPaid";
 
 const getDayName = (date: Date | undefined) => {
     if (!date) return '';
@@ -11,9 +12,28 @@ const getDayName = (date: Date | undefined) => {
     return days[date.getDay()]; 
 };
 
-const CostContent = ({ selectedDate }: { selectedDate: Date }) => {
+const formatDate = (date: Date | undefined) => {
+    if (!date) return '';
+    
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, '0');
+    
+    return `${year}-${month}-${day}`;
+};
+
+const CostContent = ({ selectedDate }: { selectedDate: Date}) => {
     const navigate = useNavigate();
     const currentDay = getDayName(selectedDate);
+    const { mutate: dayPaid } = usePostDayPaid();
+    useEffect(()=>{
+        const response = dayPaid(formatDate(selectedDate), {
+            onSuccess: (data) => {
+              console.log(data);
+            },
+          });
+        console.log(response);
+    },[selectedDate, dayPaid])
     const paidContentExample = {
         note: "바이바이 샐러드",
         amount: 42000,
