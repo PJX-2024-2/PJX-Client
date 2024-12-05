@@ -8,23 +8,22 @@ import { UserInfoProvider } from '../../context/User/UserInfoContext';
 import useGetProfile from '../../hooks/queries/mypage/useGetMypageInfo';
 
 const Mypage = () => {
-  //const { userInfo } = React.useContext(UserInfoContext);
   const navigate = useNavigate();
   const userNickname = localStorage.getItem('nickname');
   const { data } = useGetProfile();
-  const { mutate: postSummary } = usePostSummary();
+  //const { mutate: postSummary } = usePostSummary();
   
   const [summaryValues, setSummaryValues] = useState({
-    amount: 0,
-    category: '',
-    rate: '',
+    amount: 10000,
+    category: '식품',
+    rate: '37100원 초과',
   });
 
   const handleProfile = () => {
     navigate('/mypage-profile');
   };
 
-  useEffect(() => {
+  /*useEffect(() => {
     postSummary({}, {
       onSuccess: (data) => {
         console.log(data);
@@ -37,7 +36,7 @@ const Mypage = () => {
       },
       
     });
-  }, []);
+  }, []);*/
 
   return (
     <UserInfoProvider>
