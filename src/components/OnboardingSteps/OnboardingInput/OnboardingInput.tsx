@@ -11,7 +11,7 @@ interface OnboardingInputProps {
 }
 
 function OnboardingInput ({ placeholder, name, value, onChange, isError }: OnboardingInputProps){
-  console.log(value)
+  console.log(value);
   return(
     <S.OnboardingInputWrapper>
       <S.TextInput 
