@@ -86,10 +86,10 @@ const AiSubmit = ({ setValues, onState }: AiSubmitProps) => {
           imgUrl !== ''? (
             <S.PreviewImage src={imgUrl} alt='preview' />
           ) : 
-          <>
+          <S.AddBox>
             <IcPlus />
             영수증 사진 추가 (0/1)
-          </>  
+          </S.AddBox>  
         }
       </S.Label>
       <S.FileInput 
