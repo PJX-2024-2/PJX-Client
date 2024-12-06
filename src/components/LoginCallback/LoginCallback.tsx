@@ -10,7 +10,7 @@ const LoginCallback = () => {
 
   const { mutate: postCode }  = usePostAccessCode();
   const navigate = useNavigate();
-  const handleNavigate = (status: string) => {
+  const handleNavigate = (status: string | null) => {
     status === 'new' ? navigate('/onboarding') : navigate('/home');
   };
 
@@ -35,11 +35,12 @@ const LoginCallback = () => {
           localStorage.setItem('EXIT_ACCESS_TOKEN', resData.jwtToken);
           localStorage.setItem('id', resData.userInfo.id);
           localStorage.setItem('nickname', resData.userInfo.userNickname);
+          localStorage.setItem('status', resData.status);
           setUserInfo({
             nickname: resData.userInfo.nickname,
             profileImage: resData.userInfo.profileImageUrl,
           });
-          handleNavigate(resData.status);
+          handleNavigate(localStorage.getItem('status'));
           
         },
       });

@@ -1,5 +1,5 @@
 import { useMutation } from '@tanstack/react-query';
-import { post } from '../../../apis/apiInstance';
+import { getAccessTokenLocalStorage, post } from '../../../apis/apiInstance';
 import { AxiosResponse } from 'axios';
 
 export const POST_Feel_QUERY_KEY = ['feelDataList'];
@@ -7,6 +7,9 @@ export const POST_Feel_QUERY_KEY = ['feelDataList'];
 export const postFeelList = async (month: string) => {
 
   const response: AxiosResponse = await post(`/api/reaction/reactions/by-month`,null,{
+    headers: {
+      Authorization: `Bearer ${getAccessTokenLocalStorage()}`
+    },
     params: { month },
   });
 return response.data;
