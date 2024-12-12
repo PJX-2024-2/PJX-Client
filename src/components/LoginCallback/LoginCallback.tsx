@@ -50,7 +50,7 @@ const LoginCallback = () => {
   },[code]);
 
   return(
-    <Loading />
+    <Loading>로그인 중</Loading>
   );
 };
 

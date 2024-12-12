@@ -75,7 +75,7 @@ const AiSubmit = ({ setValues, onState }: AiSubmitProps) => {
   return(
     <S.AiSubmitWrapper>
       {
-        isPending && <Loading />
+        isPending && <Loading>AI 지출 분석중</Loading>
       }
       <S.HorizontalLine />
       <S.TextBox>

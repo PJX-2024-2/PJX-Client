@@ -1,12 +1,15 @@
-import { IcTitleIcon } from '../../assets/svg';
+import Lottie from 'lottie-react';
+import loadingLottie from '../../assets/lottie/loadingLottie.json';
 import * as S from './Loading.style';
-import React from 'react';
+import React, { ReactNode } from 'react';
 
-const Loading = () => {
+type LoadingProps = { children: ReactNode };
+
+const Loading = ({ children }: LoadingProps) => {
   return(
     <S.LoadingWrapper>
-      <IcTitleIcon />
-      로딩중
+      <Lottie animationData={loadingLottie}/>
+      {children}
     </S.LoadingWrapper>
   );
 };
