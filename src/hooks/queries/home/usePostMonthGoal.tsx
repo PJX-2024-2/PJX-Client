@@ -1,14 +1,11 @@
 import { useMutation } from '@tanstack/react-query';
-import { getAccessTokenLocalStorage, post } from '../../../apis/apiInstance';
+import { post } from '../../../apis/apiInstance';
 import { AxiosResponse } from 'axios';
 
 export const POST_MONTH_GOAL_QUERY_KEY = ['monthGoal'];
 
 export const postMonthGoal = async (newGoal: number) => {
   const response: AxiosResponse = await post(`/api/spending/goal`, null, {
-    headers: {
-      Authorization: `Bearer ${getAccessTokenLocalStorage()}`
-    },
     params: { newGoal },
   });
   return response.data;

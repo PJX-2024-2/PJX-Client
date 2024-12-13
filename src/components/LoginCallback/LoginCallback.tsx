@@ -41,7 +41,6 @@ const LoginCallback = () => {
             profileImage: resData.userInfo.profileImageUrl,
           });
           handleNavigate(localStorage.getItem('status'));
-          
         },
       });
     } else {

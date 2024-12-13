@@ -38,7 +38,7 @@ export const SummaryBox = styled.div`
   ${({ theme: { mixin } }) => mixin.flexCenter({})};
   width: 34.3rem;
   height: auto;
-  min-height: 5rem;
+  min-height: 10rem;
   border-radius: 10px;
   border: 1px solid rgba(0, 0, 0, 0.3);
   padding: 1.6rem 2rem;

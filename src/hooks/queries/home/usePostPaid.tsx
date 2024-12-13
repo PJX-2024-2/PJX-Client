@@ -1,14 +1,11 @@
 import { useMutation } from '@tanstack/react-query';
-import { getAccessTokenLocalStorage, post } from '../../../apis/apiInstance';
+import { post } from '../../../apis/apiInstance';
 import { AxiosResponse } from 'axios';
 
 export const PAID_QUERY_KEY = ['paidData'];
 
 export const postPaid = async (month: string) => {
     const response: AxiosResponse = await post('/api/spending/current',null,{
-      headers: {
-        Authorization: `Bearer ${getAccessTokenLocalStorage()}`
-      },
         params: { month },
       });
     return response.data;
